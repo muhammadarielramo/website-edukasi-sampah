@@ -29,17 +29,22 @@
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
 
         .logos-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0px;
         }
 
-        .logo-img {
-            height: 50px;
+        .logo-tutwuri {
+            height: 42px; /* Dikecilkan sedikit karena rasio aslinya memanjang */
+            object-fit: contain;
+        }
+
+        .logo-sdn {
+            height: 55px; /* Dibesarkan sedikit karena rasio aslinya persegi/kotak */
             object-fit: contain;
         }
 
@@ -196,6 +201,11 @@
                 margin-top: 15px;
             }
         }
+        
+        .custom-footer {
+            background: linear-gradient(to right, #33A12D, #376132);
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -205,8 +215,8 @@
         <div class="container-fluid px-4 px-lg-5">
             <a class="navbar-brand" href="#">
                 <div class="logos-container">
-                    <img src="{{ asset('images/logotutwurihandayani.png') }}" alt="Tut Wuri Handayani" class="logo-img">
-                    <img src="{{ asset('images/logosdnkondangjaya2nobg.png') }}" alt="SDN Kondangjaya 2" class="logo-img">
+                    <img src="{{ asset('images/logotutwurihandayani.png') }}" alt="Tut Wuri Handayani" class="logo-tutwuri">
+                    <img src="{{ asset('images/logosdnkondangjaya2.png') }}" alt="SDN Kondangjaya 2" class="logo-sdn">
                 </div>
                 <div class="brand-text-container">
                     <h1 class="brand-title">SDN Kondangjaya II</h1>
@@ -223,24 +233,30 @@
                     <li class="nav-item active-item">
                         <a class="nav-link active" href="#">Beranda</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tentang-kami">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#artikel">Artikel</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMateri" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Materi
+                        </a>
+                        <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownMateri">
+                            <li><a class="dropdown-item" href="#reduce">Reduce</a></li>
+                            <li><a class="dropdown-item" href="#reuse">Reuse</a></li>
+                            <li><a class="dropdown-item" href="#recycle">Recycle</a></li>
+                            <li><a class="dropdown-item" href="#video-edukasi">Video Edukasi</a></li>
+                            <li><a class="dropdown-item" href="#kuis">Kuis</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Lainnya
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArtikel" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Artikel
                         </a>
-                        <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#belajar-sampah">📚 Belajar Sampah</a></li>
-                            <li><a class="dropdown-item" href="#belajar-3r">♻️ Belajar 3R</a></li>
-                            <li><a class="dropdown-item" href="#video-edukasi">🎥 Video Edukasi</a></li>
-                            <li><a class="dropdown-item" href="#kuis">🎮 Kuis Interaktif</a></li>
-                            <li><a class="dropdown-item" href="#galeri">🎨 Galeri</a></li>
-                            <li><a class="dropdown-item" href="#download">📥 Download</a></li>
+                        <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownArtikel">
+                            <li><a class="dropdown-item" href="#artikel-lingkungan">Artikel Lingkungan</a></li>
+                            <li><a class="dropdown-item" href="#berita-sekolah">Berita Sekolah</a></li>
+                            <li><a class="dropdown-item" href="#pengumuman">Pengumuman</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang-kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item ms-lg-3">
                         <a href="#login" class="btn btn-login px-4">Login</a>
@@ -270,6 +286,12 @@
             </div>
         </div>
     </section>
+    <!-- Footer -->
+    <footer class="custom-footer text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Website Edukasi Pengelolaan Sampah SDN Kondangjaya II. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <!-- Bootstrap 5.3 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
