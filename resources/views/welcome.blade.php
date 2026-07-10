@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sampah Pintar - Media Edukasi Pengelolaan Sampah SDN Kondangjaya 2</title>
+    <title>Sampah Pintar - Media Edukasi Pengelolaan Sampah SDN Kondangjaya II</title>
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -209,7 +209,7 @@
                     <img src="{{ asset('images/logosdnkondangjaya2nobg.png') }}" alt="SDN Kondangjaya 2" class="logo-img">
                 </div>
                 <div class="brand-text-container">
-                    <h1 class="brand-title">SDN Kondangjaya 2</h1>
+                    <h1 class="brand-title">SDN Kondangjaya II</h1>
                     <p class="brand-subtitle">Kurangi Sampah, Selamatkan Masa Depan</p>
                 </div>
             </a>
