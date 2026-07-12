@@ -238,28 +238,20 @@
                             Materi
                         </a>
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownMateri">
-                            <li><a class="dropdown-item" href="#reduce">Reduce</a></li>
-                            <li><a class="dropdown-item" href="#reuse">Reuse</a></li>
-                            <li><a class="dropdown-item" href="#recycle">Recycle</a></li>
+                            <li><a class="dropdown-item" href="#belajar-sampah">Belajar Sampah</a></li>
+                            <li><a class="dropdown-item" href="#belajar-3r">Belajar 3R</a></li>
                             <li><a class="dropdown-item" href="#video-edukasi">Video Edukasi</a></li>
                             <li><a class="dropdown-item" href="#kuis">Kuis</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownArtikel" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Artikel
-                        </a>
-                        <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownArtikel">
-                            <li><a class="dropdown-item" href="#artikel-lingkungan">Artikel Lingkungan</a></li>
-                            <li><a class="dropdown-item" href="#berita-sekolah">Berita Sekolah</a></li>
-                            <li><a class="dropdown-item" href="#pengumuman">Pengumuman</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#artikel">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tentang-kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item ms-lg-3">
-                        <a href="#login" class="btn btn-login px-4">Login</a>
+                        <a href="/login" class="btn btn-login px-4">Login</a>
                     </li>
                 </ul>
             </div>
