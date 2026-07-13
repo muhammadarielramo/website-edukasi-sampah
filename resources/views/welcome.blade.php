@@ -6,6 +6,8 @@
     <title>Sampah Pintar - Media Edukasi Pengelolaan Sampah SDN Kondangjaya II</title>
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -245,7 +247,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#artikel">Artikel</a>
+                        <a class="nav-link" href="{{ route('artikel.index') }}">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tentang-kami">Tentang Kami</a>
@@ -278,6 +280,93 @@
             </div>
         </div>
     </section>
+
+    <!-- Tentang Kami Section -->
+    <section id="tentang-kami" class="py-5" style="background-color: #ffffff;">
+        <div class="container py-4">
+            <!-- Main Card -->
+            <div class="card shadow-sm mb-5" style="border: 2px solid #e2e8f0; border-radius: 24px;">
+                <div class="card-body p-4 p-md-5">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold" style="color: #3f8843; display: inline-block; position: relative;">
+                            Tentang Kami
+                            <span style="position: absolute; bottom: -10px; left: 0; width: 100%; height: 3px; background-color: #3f8843;"></span>
+                        </h2>
+                    </div>
+                    
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-5 text-center">
+                            <img src="{{ asset('images/tampakdepansekolah.jpg') }}" alt="SDN Kondangjaya II" class="img-fluid shadow-sm" style="width: 100%; height: 260px; object-fit: cover; border-radius: 16px;">
+                        </div>
+                        <div class="col-lg-7">
+                            <p class="fs-6" style="line-height: 1.8; color: #2c3e2e; font-weight: 500;">
+                                SDN Kondangjaya II merupakan sekolah dasar negeri yang berada di Desa Kondangjaya, Kecamatan Karawang Timur, Kabupaten Karawang, Provinsi Jawa Barat. Sekolah ini berada di bawah naungan Kementerian Pendidikan Dasar dan Menengah dan berkomitmen memberikan pendidikan yang berkualitas, berkarakter, serta mendukung perkembangan peserta didik secara optimal.
+                            </p>
+                            <p class="fs-6" style="line-height: 1.8; color: #2c3e2e; font-weight: 500; margin-bottom: 0;">
+                                Berlokasi di Bendasari, Desa Kondangjaya, Karawang Timur, SDN Kondangjaya II dan memiliki akreditasi A.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Info Cards -->
+            <div class="row g-3 justify-content-center">
+                <!-- Card 1: Sekolah Negeri -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #d1ebd1; border-radius: 20px;">
+                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
+                            <i class="bi bi-building fs-3" style="color: #3f8843;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Sekolah Negeri</h6>
+                            <small style="color: #4b5563; font-size: 0.8rem; font-weight: 500;">SDN Kondangjaya II</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Location -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #a4c2f4; border-radius: 20px;">
+                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
+                            <i class="bi bi-geo-alt-fill fs-3" style="color: #1976d2;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Karawang Timur</h6>
+                            <small style="color: #4b5563; font-size: 0.65rem; line-height: 1.3; display: block; font-weight: 500;">Bendasari, Kondangjaya, Kec. Karawang Timur, Kab. Karawang, Jawa Barat.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Akreditasi -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #e4c466; border-radius: 20px;">
+                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
+                            <i class="bi bi-award-fill fs-3" style="color: #eab308;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-white" style="font-size: 1.5rem; text-shadow: 0px 1px 2px rgba(0,0,0,0.1);">A</h6>
+                            <small class="text-white fw-bold" style="font-size: 0.85rem;">Akreditasi A</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: 3R -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #d1f2d1; border-radius: 20px;">
+                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
+                            <i class="bi bi-tree-fill fs-3" style="color: #3f8843;"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-0" style="font-size: 1.5rem; color: #2e7d32;">3 R</h6>
+                            <small class="fw-bold" style="font-size: 0.85rem; color: #3f8843;">Peduli Lingkungan</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="custom-footer text-center py-3 mt-auto">
         <div class="container">

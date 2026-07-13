@@ -7,6 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/artikel', [\App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel.index');
+Route::get('/artikel/{slug}', [\App\Http\Controllers\ArtikelController::class, 'show'])->name('artikel.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
