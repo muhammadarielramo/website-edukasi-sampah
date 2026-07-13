@@ -10,6 +10,10 @@ Route::get('/', function () {
 Route::get('/artikel', [\App\Http\Controllers\ArtikelController::class, 'index'])->name('artikel.index');
 Route::get('/artikel/{slug}', [\App\Http\Controllers\ArtikelController::class, 'show'])->name('artikel.show');
 
+Route::view('/tentang-kami', 'tentang-kami')->name('tentang-kami');
+Route::view('/belajar-sampah', 'belajar-sampah')->name('belajar-sampah');
+Route::view('/belajar-3r', 'belajar-3r')->name('belajar-3r');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

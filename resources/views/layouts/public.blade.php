@@ -157,8 +157,8 @@
                             Materi
                         </a>
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownMateri">
-                            <li><a class="dropdown-item" href="{{ url('/') }}#belajar-sampah">Belajar Sampah</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/') }}#belajar-3r">Belajar 3R</a></li>
+                            <li><a class="dropdown-item" href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
+                            <li><a class="dropdown-item" href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
                             <li><a class="dropdown-item" href="{{ url('/') }}#video-edukasi">Video Edukasi</a></li>
                             <li><a class="dropdown-item" href="{{ url('/') }}#kuis">Kuis</a></li>
                         </ul>
@@ -166,8 +166,8 @@
                     <li class="nav-item {{ request()->is('artikel*') ? 'active-item' : '' }}">
                         <a class="nav-link {{ request()->is('artikel*') ? 'active' : '' }}" href="{{ route('artikel.index') }}">Artikel</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}#tentang-kami">Tentang Kami</a>
+                    <li class="nav-item {{ request()->is('tentang-kami') ? 'active-item' : '' }}">
+                        <a class="nav-link {{ request()->is('tentang-kami') ? 'active' : '' }}" href="{{ route('tentang-kami') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item ms-lg-3">
                         @auth

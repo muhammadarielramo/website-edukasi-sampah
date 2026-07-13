@@ -164,16 +164,40 @@
         }
         
         .btn-learn-more.green-btn {
-            background-color: #34d399; /* Adjust to match the image green button */
-            background-image: linear-gradient(to right, #4ade80, #22c55e);
+            background-color: #1a4d2e;
             color: #ffffff;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn-learn-more.green-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.6);
+            background-color: #11331e;
             color: #ffffff;
+        }
+
+        .btn-watch-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #1a4d2e;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 10px 28px;
+            border: 2px solid #1a4d2e;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-watch-video i {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .btn-watch-video:hover {
+            color: #11331e;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 991.98px) {
@@ -240,8 +264,8 @@
                             Materi
                         </a>
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownMateri">
-                            <li><a class="dropdown-item" href="#belajar-sampah">Belajar Sampah</a></li>
-                            <li><a class="dropdown-item" href="#belajar-3r">Belajar 3R</a></li>
+                            <li><a class="dropdown-item" href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
+                            <li><a class="dropdown-item" href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
                             <li><a class="dropdown-item" href="#video-edukasi">Video Edukasi</a></li>
                             <li><a class="dropdown-item" href="#kuis">Kuis</a></li>
                         </ul>
@@ -250,7 +274,7 @@
                         <a class="nav-link" href="{{ route('artikel.index') }}">Artikel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tentang-kami">Tentang Kami</a>
+                        <a class="nav-link" href="{{ route('tentang-kami') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item ms-lg-3">
                         <a href="/login" class="btn btn-login px-4">Login</a>
@@ -274,95 +298,49 @@
                         <p class="hero-description">
                             Belajar, peduli, dan bertindak bersama untuk menciptakan lingkungan yang lebih bersih dan berkelanjutan melalui penerapan prinsip Reduce, Reuse, dan Recycle. Mulai langkah kecil hari ini untuk memberikan dampak besar bagi bumi.
                         </p>
-                        <a href="#belajar" class="btn-learn-more green-btn">Mulai Belajar</a>
+                        <div class="d-flex align-items-center gap-4 mt-2">
+                            <a href="#belajar" class="btn-learn-more green-btn">Mulai Belajar</a>
+                            <a href="{{ route('belajar-sampah') }}" class="btn-watch-video">
+                                <i class="bi bi-play-circle"></i> Tonton Video
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tentang Kami Section -->
-    <section id="tentang-kami" class="py-5" style="background-color: #ffffff;">
-        <div class="container py-4">
-            <!-- Main Card -->
-            <div class="card shadow-sm mb-5" style="border: 2px solid #e2e8f0; border-radius: 24px;">
-                <div class="card-body p-4 p-md-5">
-                    <div class="text-center mb-5">
-                        <h2 class="fw-bold" style="color: #3f8843; display: inline-block; position: relative;">
-                            Tentang Kami
-                            <span style="position: absolute; bottom: -10px; left: 0; width: 100%; height: 3px; background-color: #3f8843;"></span>
-                        </h2>
-                    </div>
-                    
-                    <div class="row align-items-center g-4">
-                        <div class="col-lg-5 text-center">
-                            <img src="{{ asset('images/tampakdepansekolah.jpg') }}" alt="SDN Kondangjaya II" class="img-fluid shadow-sm" style="width: 100%; height: 260px; object-fit: cover; border-radius: 16px;">
-                        </div>
-                        <div class="col-lg-7">
-                            <p class="fs-6" style="line-height: 1.8; color: #2c3e2e; font-weight: 500;">
-                                SDN Kondangjaya II merupakan sekolah dasar negeri yang berada di Desa Kondangjaya, Kecamatan Karawang Timur, Kabupaten Karawang, Provinsi Jawa Barat. Sekolah ini berada di bawah naungan Kementerian Pendidikan Dasar dan Menengah dan berkomitmen memberikan pendidikan yang berkualitas, berkarakter, serta mendukung perkembangan peserta didik secara optimal.
-                            </p>
-                            <p class="fs-6" style="line-height: 1.8; color: #2c3e2e; font-weight: 500; margin-bottom: 0;">
-                                Berlokasi di Bendasari, Desa Kondangjaya, Karawang Timur, SDN Kondangjaya II dan memiliki akreditasi A.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 4 Info Cards -->
-            <div class="row g-3 justify-content-center">
-                <!-- Card 1: Sekolah Negeri -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #d1ebd1; border-radius: 20px;">
-                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                            <i class="bi bi-building fs-3" style="color: #3f8843;"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Sekolah Negeri</h6>
-                            <small style="color: #4b5563; font-size: 0.8rem; font-weight: 500;">SDN Kondangjaya II</small>
-                        </div>
+
+    <!-- Hukum Section -->
+    <section class="py-5 bg-white position-relative" style="overflow: hidden;">
+        <div class="container py-5">
+            <h2 class="text-center fw-bold mb-5" style="color: #3f8843; font-size: 2.2rem; letter-spacing: 1px;">HUKUM</h2>
+            
+            <div class="row align-items-center mb-4">
+                <div class="col-md-5 mb-4 mb-md-0 text-center">
+                    <div class="d-inline-block p-1 bg-white">
+                        <img src="{{ asset('images/aset1hukum.png') }}" alt="Ilustrasi Dokumen Hukum" class="img-fluid" style="max-height: 250px; object-fit: contain;">
                     </div>
                 </div>
                 
-                <!-- Card 2: Location -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #a4c2f4; border-radius: 20px;">
-                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                            <i class="bi bi-geo-alt-fill fs-3" style="color: #1976d2;"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Karawang Timur</h6>
-                            <small style="color: #4b5563; font-size: 0.65rem; line-height: 1.3; display: block; font-weight: 500;">Bendasari, Kondangjaya, Kec. Karawang Timur, Kab. Karawang, Jawa Barat.</small>
-                        </div>
-                    </div>
+                <!-- Right Text -->
+                <div class="col-md-7">
+                    <p class="fs-5 fw-semibold text-md-end text-center" style="color: #435c45; line-height: 1.8;">
+                        Di Indonesia ada aturan yang mengatur tentang<br class="d-none d-md-block">
+                        pengelolaan sampah. Yaitu Undang-Undang Nomor 18<br class="d-none d-md-block">
+                        Tahun 2008 tentang Pengelolaan Sampah. Undang-<br class="d-none d-md-block">
+                        undang ini mengajarkan bahwa sampah harus dikelola<br class="d-none d-md-block">
+                        dengan baik agar tidak merusak lingkungan. "Kalau di<br class="d-none d-md-block">
+                        sekolah ada tata tertib, maka negara juga punya aturan<br class="d-none d-md-block">
+                        supaya lingkungan tetap bersih."
+                    </p>
                 </div>
-
-                <!-- Card 3: Akreditasi -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #e4c466; border-radius: 20px;">
-                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                            <i class="bi bi-award-fill fs-3" style="color: #eab308;"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold mb-0 text-white" style="font-size: 1.5rem; text-shadow: 0px 1px 2px rgba(0,0,0,0.1);">A</h6>
-                            <small class="text-white fw-bold" style="font-size: 0.85rem;">Akreditasi A</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: 3R -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center p-3 h-100" style="background-color: #d1f2d1; border-radius: 20px;">
-                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center me-3 shadow-sm" style="width: 60px; height: 60px; min-width: 60px;">
-                            <i class="bi bi-tree-fill fs-3" style="color: #3f8843;"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold mb-0" style="font-size: 1.5rem; color: #2e7d32;">3 R</h6>
-                            <small class="fw-bold" style="font-size: 0.85rem; color: #3f8843;">Peduli Lingkungan</small>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            
+            <!-- Bottom Right Image -->
+            <div class="d-flex justify-content-end mt-2 position-relative" style="z-index: 2;">
+                <img src="{{ asset('images/aset2hukum.png') }}" alt="Ilustrasi Tong Sampah" class="img-fluid" style="max-height: 200px; transform: translateX(20px);">
             </div>
         </div>
     </section>
