@@ -225,8 +225,11 @@
                     <p class="mb-4" style="color: #e2e8f0; font-size: 0.95rem;">Edukasi Sampah SDN Kondangjaya II. Kurangi Sampah, Selamatkan Masa Depan.</p>
                     
                     <h5 class="footer-title">Alamat</h5>
-                    <p class="mb-0" style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;">
+                    <p class="mb-3" style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;">
                         Bendasari, Desa Kondangjaya, Kec. Karawang Timur, Kab. Karawang, Prov. Jawa Barat.
+                    </p>
+                    <p class="mb-0" style="color: #e2e8f0; font-size: 0.95rem;">
+                        <i class="bi bi-envelope-fill text-warning me-2"></i>kondangjaya2krw@gmail.com
                     </p>
                 </div>
 
