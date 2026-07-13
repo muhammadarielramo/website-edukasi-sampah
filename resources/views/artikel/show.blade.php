@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', $article->title . ' - Sampah Pintar')
+@section('title', $article->title . ' - DigiHejo')
 
 @push('styles')
 <style>

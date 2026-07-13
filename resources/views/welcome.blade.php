@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sampah Pintar - Media Edukasi Pengelolaan Sampah SDN Kondangjaya II</title>
+    <title>DigiHejo - Website Edukasi Pengelolaan Sampah SDN Kondangjaya 2</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logosdnkondangjaya2.png') }}">
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -232,6 +233,31 @@
             background: linear-gradient(to right, #33A12D, #376132);
             color: #ffffff;
         }
+
+        .footer-links a, .footer-socials a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover, .footer-socials a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .footer-socials i {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #eab308; /* Yellow accent */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
@@ -245,8 +271,8 @@
                     <img src="{{ asset('images/logosdnkondangjaya2.png') }}" alt="SDN Kondangjaya 2" class="logo-sdn">
                 </div>
                 <div class="brand-text-container">
-                    <h1 class="brand-title">SDN Kondangjaya II</h1>
-                    <p class="brand-subtitle">Kurangi Sampah, Selamatkan Masa Depan</p>
+                    <h1 class="brand-title">DigiHejo</h1>
+                    <p class="brand-subtitle">Edukasi Sampah SDN Kondangjaya II</p>
                 </div>
             </a>
             
@@ -346,9 +372,71 @@
     </section>
 
     <!-- Footer -->
-    <footer class="custom-footer text-center py-3 mt-auto">
+    <footer class="custom-footer pt-5 pb-3 mt-auto text-start">
         <div class="container">
-            <p class="mb-0">&copy; 2026 Website Edukasi Pengelolaan Sampah SDN Kondangjaya II. All Rights Reserved.</p>
+            <div class="row mb-4">
+                <!-- Col 1: Logo, Deskripsi, & Alamat -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="{{ asset('images/logosdnkondangjaya2.png') }}" alt="SDN Kondangjaya 2" style="height: 50px; object-fit: contain;">
+                        <h5 class="fw-bold mb-0">DigiHejo</h5>
+                    </div>
+                    <p class="mb-4" style="color: #e2e8f0; font-size: 0.95rem;">Edukasi Sampah SDN Kondangjaya II. Kurangi Sampah, Selamatkan Masa Depan.</p>
+                    
+                    <h5 class="footer-title">Alamat</h5>
+                    <p class="mb-0" style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;">
+                        Bendasari, Desa Kondangjaya, Kec. Karawang Timur, Kab. Karawang, Prov. Jawa Barat.
+                    </p>
+                </div>
+
+                <!-- Col 2: Menu Cepat -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Menu Cepat</h5>
+                    <ul class="list-unstyled footer-links" style="line-height: 2;">
+                        <li><a href="{{ url('/') }}">Beranda</a></li>
+                        <li><a href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
+                        <li><a href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
+                        <li><a href="#video-edukasi">Video Edukasi</a></li>
+                        <li><a href="#kuis">Kuis</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Media Sosial -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-title">Media Sosial</h5>
+                    <ul class="list-unstyled footer-socials" style="line-height: 2;">
+                        <li>
+                            <a href="https://www.instagram.com/sdnkondangjaya2official/" target="_blank" class="d-flex align-items-center">
+                                <i class="bi bi-instagram"></i> Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtube.com/@sdnkojalingeur2?si=j4HuoZzcPHZBmccj" target="_blank" class="d-flex align-items-center">
+                                <i class="bi bi-youtube"></i> YouTube
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@sdnkoja2?_r=1&_t=ZS-97xQP9W0qH3" target="_blank" class="d-flex align-items-center">
+                                <i class="bi bi-tiktok"></i> TikTok
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Map -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Lokasi Kami</h5>
+                    <div style="border-radius: 10px; overflow: hidden; border: 2px solid #eab308; background: #fff;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3588.606487263019!2d107.32964477453248!3d-6.324082561881269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e697654a29eda6b%3A0x4030990ad90512fa!2sSDN%20Kondangjaya%20II!5e1!3m2!1sid!2sid!4v1783941255392!5m2!1sid!2sid" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255,255,255,0.2); margin-top: 2rem; margin-bottom: 1.5rem;">
+            
+            <div class="text-center">
+                <p class="mb-0" style="color: #e2e8f0; font-size: 0.9rem;">&copy; 2026 DigiHejo. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 

@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Belajar Sampah - Sampah Pintar')
+@section('title', 'Belajar Sampah - DigiHejo')
 
 @push('styles')
 <!-- Bootstrap Icons -->
