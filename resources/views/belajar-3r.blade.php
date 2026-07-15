@@ -92,6 +92,32 @@
         margin-top: 2px;
     }
 
+    .hukum-banner {
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        max-width: 900px;
+        margin: 50px auto 0 auto;
+    }
+
+    .hukum-icon {
+        width: 100px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .hukum-text {
+        color: #111827;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 0;
+        line-height: 1.5;
+    }
+
     @media (max-width: 991.98px) {
         .title-3r {
             font-size: 2.2rem;
@@ -100,6 +126,14 @@
             flex-direction: column;
             text-align: center;
             gap: 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hukum-banner {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
         }
     }
 </style>
@@ -167,6 +201,14 @@
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <!-- Hukum Banner -->
+        <div class="hukum-banner">
+            <img src="{{ asset('images/aset1hukum.png') }}" alt="Hukum Icon" class="hukum-icon">
+            <p class="hukum-text">
+                Peraturan Pemerintah Nomor 81 Tahun 2012 tentang Pengelolaan Sampah Rumah Tangga. Aturan ini mengajarkan cara mengelola sampah di rumah dengan baik.
+            </p>
         </div>
     </div>
 </div>

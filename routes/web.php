@@ -13,6 +13,8 @@ Route::get('/artikel/{slug}', [\App\Http\Controllers\ArtikelController::class, '
 Route::view('/tentang-kami', 'tentang-kami')->name('tentang-kami');
 Route::view('/belajar-sampah', 'belajar-sampah')->name('belajar-sampah');
 Route::view('/belajar-3r', 'belajar-3r')->name('belajar-3r');
+Route::view('/hukum', 'hukum')->name('hukum');
+Route::view('/hukum2', 'hukum2')->name('hukum2');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

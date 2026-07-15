@@ -292,6 +292,7 @@
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownMateri">
                             <li><a class="dropdown-item" href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
                             <li><a class="dropdown-item" href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
+                            <li><a class="dropdown-item" href="{{ route('hukum') }}">Hukum</a></li>
                             <li><a class="dropdown-item" href="#video-edukasi">Video Edukasi</a></li>
                             <li><a class="dropdown-item" href="#kuis">Kuis</a></li>
                         </ul>
@@ -302,9 +303,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('tentang-kami') }}">Tentang Kami</a>
                     </li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="/login" class="btn btn-login px-4">Login</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -338,38 +337,6 @@
 
 
 
-    <!-- Hukum Section -->
-    <section class="py-5 bg-white position-relative" style="overflow: hidden;">
-        <div class="container py-5">
-            <h2 class="text-center fw-bold mb-5" style="color: #3f8843; font-size: 2.2rem; letter-spacing: 1px;">HUKUM</h2>
-            
-            <div class="row align-items-center mb-4">
-                <div class="col-md-5 mb-4 mb-md-0 text-center">
-                    <div class="d-inline-block p-1 bg-white">
-                        <img src="{{ asset('images/aset1hukum.png') }}" alt="Ilustrasi Dokumen Hukum" class="img-fluid" style="max-height: 250px; object-fit: contain;">
-                    </div>
-                </div>
-                
-                <!-- Right Text -->
-                <div class="col-md-7">
-                    <p class="fs-5 fw-semibold text-md-end text-center" style="color: #435c45; line-height: 1.8;">
-                        Di Indonesia ada aturan yang mengatur tentang<br class="d-none d-md-block">
-                        pengelolaan sampah. Yaitu Undang-Undang Nomor 18<br class="d-none d-md-block">
-                        Tahun 2008 tentang Pengelolaan Sampah. Undang-<br class="d-none d-md-block">
-                        undang ini mengajarkan bahwa sampah harus dikelola<br class="d-none d-md-block">
-                        dengan baik agar tidak merusak lingkungan. "Kalau di<br class="d-none d-md-block">
-                        sekolah ada tata tertib, maka negara juga punya aturan<br class="d-none d-md-block">
-                        supaya lingkungan tetap bersih."
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Bottom Right Image -->
-            <div class="d-flex justify-content-end mt-2 position-relative" style="z-index: 2;">
-                <img src="{{ asset('images/aset2hukum.png') }}" alt="Ilustrasi Tong Sampah" class="img-fluid" style="max-height: 200px; transform: translateX(20px);">
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="custom-footer pt-5 pb-3 mt-auto text-start">
@@ -399,6 +366,7 @@
                         <li><a href="{{ url('/') }}">Beranda</a></li>
                         <li><a href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
                         <li><a href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
+                        <li><a href="{{ route('hukum') }}">Hukum</a></li>
                         <li><a href="#video-edukasi">Video Edukasi</a></li>
                         <li><a href="#kuis">Kuis</a></li>
                     </ul>
