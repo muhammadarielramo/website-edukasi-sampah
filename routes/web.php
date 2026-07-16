@@ -15,6 +15,8 @@ Route::view('/belajar-sampah', 'belajar-sampah')->name('belajar-sampah');
 Route::view('/belajar-3r', 'belajar-3r')->name('belajar-3r');
 Route::view('/hukum', 'hukum')->name('hukum');
 Route::view('/hukum2', 'hukum2')->name('hukum2');
+Route::view('/video-edukasi', 'video')->name('video-edukasi');
+Route::view('/kuis', 'kuis')->name('kuis');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

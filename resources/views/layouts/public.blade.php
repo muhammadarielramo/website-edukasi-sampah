@@ -186,8 +186,8 @@
                             <li><a class="dropdown-item" href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
                             <li><a class="dropdown-item" href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
                             <li><a class="dropdown-item" href="{{ route('hukum') }}">Hukum</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/') }}#video-edukasi">Video Edukasi</a></li>
-                            <li><a class="dropdown-item" href="{{ url('/') }}#kuis">Kuis</a></li>
+                            <li><a class="dropdown-item" href="{{ route('video-edukasi') }}">Video Edukasi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('kuis') }}">Kuis</a></li>
                         </ul>
                     </li>
                     <li class="nav-item {{ request()->is('artikel*') ? 'active-item' : '' }}">
@@ -236,8 +236,8 @@
                         <li><a href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
                         <li><a href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
                         <li><a href="{{ route('hukum') }}">Hukum</a></li>
-                        <li><a href="{{ url('/') }}#video-edukasi">Video Edukasi</a></li>
-                        <li><a href="{{ url('/') }}#kuis">Kuis</a></li>
+                        <li><a href="{{ route('video-edukasi') }}">Video Edukasi</a></li>
+                        <li><a href="{{ route('kuis') }}">Kuis</a></li>
                     </ul>
                 </div>
 

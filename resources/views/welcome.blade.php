@@ -293,8 +293,8 @@
                             <li><a class="dropdown-item" href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
                             <li><a class="dropdown-item" href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
                             <li><a class="dropdown-item" href="{{ route('hukum') }}">Hukum</a></li>
-                            <li><a class="dropdown-item" href="#video-edukasi">Video Edukasi</a></li>
-                            <li><a class="dropdown-item" href="#kuis">Kuis</a></li>
+                            <li><a class="dropdown-item" href="{{ route('video-edukasi') }}">Video Edukasi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('kuis') }}">Kuis</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -367,8 +367,8 @@
                         <li><a href="{{ route('belajar-sampah') }}">Belajar Sampah</a></li>
                         <li><a href="{{ route('belajar-3r') }}">Belajar 3R</a></li>
                         <li><a href="{{ route('hukum') }}">Hukum</a></li>
-                        <li><a href="#video-edukasi">Video Edukasi</a></li>
-                        <li><a href="#kuis">Kuis</a></li>
+                        <li><a href="{{ route('video-edukasi') }}">Video Edukasi</a></li>
+                        <li><a href="{{ route('kuis') }}">Kuis</a></li>
                     </ul>
                 </div>
 
