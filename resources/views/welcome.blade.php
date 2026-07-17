@@ -324,8 +324,8 @@
                             Belajar, peduli, dan bertindak bersama untuk menciptakan lingkungan yang lebih bersih dan berkelanjutan melalui penerapan prinsip Reduce, Reuse, dan Recycle. Mulai langkah kecil hari ini untuk memberikan dampak besar bagi bumi.
                         </p>
                         <div class="d-flex align-items-center gap-4 mt-2">
-                            <a href="#belajar" class="btn-learn-more green-btn">Mulai Belajar</a>
-                            <a href="{{ route('belajar-sampah') }}" class="btn-watch-video">
+                            <a href="{{ route('belajar-sampah') }}" class="btn-learn-more green-btn">Mulai Belajar</a>
+                            <a href="{{ route('video-edukasi') }}" class="btn-watch-video">
                                 <i class="bi bi-play-circle"></i> Tonton Video
                             </a>
                         </div>
