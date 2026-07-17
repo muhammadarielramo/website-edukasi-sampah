@@ -5,6 +5,8 @@
 @push('styles')
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!-- Animate.css for SweetAlert animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
     .kuis-page {
         font-family: 'Inter', sans-serif;
@@ -450,6 +452,7 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     // Quiz Data
     const questions = [
@@ -637,6 +640,35 @@
                 } else {
                     selectedEl.classList.add('incorrect');
                 }
+            }
+            
+            // Cute Popups using SweetAlert2
+            if (isCorrect) {
+                Swal.fire({
+                    title: 'Hore! Jawabanmu Benar! 🎉',
+                    html: '<div style="font-size: 4rem;">🌟😺🌟</div>',
+                    confirmButtonColor: '#22c55e',
+                    confirmButtonText: 'Lanjut',
+                    showClass: {
+                        popup: 'animate__animated animate__tada'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__zoomOut'
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: 'Yah, Kurang Tepat 😅',
+                    html: '<div style="font-size: 4rem;">😿</div><p class="mt-2">Tetap semangat belajarnya ya!</p>',
+                    confirmButtonColor: '#ef4444',
+                    confirmButtonText: 'Oke',
+                    showClass: {
+                        popup: 'animate__animated animate__headShake'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__zoomOut'
+                    }
+                });
             }
             
             // Update button text
