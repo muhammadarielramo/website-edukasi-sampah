@@ -15,7 +15,10 @@ Route::view('/belajar-sampah', 'belajar-sampah')->name('belajar-sampah');
 Route::view('/belajar-3r', 'belajar-3r')->name('belajar-3r');
 Route::view('/hukum', 'hukum')->name('hukum');
 Route::view('/hukum2', 'hukum2')->name('hukum2');
-Route::view('/video-edukasi', 'video')->name('video-edukasi');
+Route::get('/video-edukasi', function () {
+    $videos = \App\Models\Video::latest()->get();
+    return view('video', compact('videos'));
+})->name('video-edukasi');
 Route::view('/kuis', 'kuis')->name('kuis');
 
 Route::get('/dashboard', function () {
@@ -28,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::resource('articles', \App\Http\Controllers\ArticleController::class)->except(['show']);
+    Route::resource('videos', \App\Http\Controllers\VideoController::class)->except(['show']);
 });
 
 require __DIR__.'/auth.php';

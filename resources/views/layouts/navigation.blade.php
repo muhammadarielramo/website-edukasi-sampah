@@ -14,6 +14,9 @@
         <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')" class="mx-2 rounded-md">
             {{ __('Kelola Artikel') }}
         </x-responsive-nav-link>
+        <x-responsive-nav-link :href="route('videos.index')" :active="request()->routeIs('videos.*')" class="mx-2 rounded-md">
+            {{ __('Kelola Video') }}
+        </x-responsive-nav-link>
     </div>
 
 
@@ -40,6 +43,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
                 {{ __('Kelola Artikel') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('videos.index')" :active="request()->routeIs('videos.*')">
+                {{ __('Kelola Video') }}
             </x-responsive-nav-link>
         </div>
 

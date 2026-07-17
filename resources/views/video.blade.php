@@ -189,36 +189,33 @@
 
         <!-- Video Grid -->
         <div class="row g-4">
-            @php
-                $videos = [
-                    ['title' => 'Reuse: Gunakan Kembali', 'duration' => '04:20'],
-                    ['title' => 'Membuat Kompos', 'duration' => '04:15'],
-                    ['title' => 'Mengenal 3R', 'duration' => '05:10'],
-                    ['title' => 'Cara Memilah Sampah', 'duration' => '04:38'],
-                    ['title' => 'Mengapa Harus Jaga Bumi?', 'duration' => '03:55'],
-                    ['title' => 'Recycle : Daur Ulang', 'duration' => '04:50'],
-                ];
-            @endphp
-
-            @foreach($videos as $index => $video)
+            @forelse($videos as $video)
             <div class="col-md-4">
                 <div class="video-card">
-                    <div class="thumbnail-wrapper" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#videoModal">
-                        <img src="{{ asset('images/aset1video.png') }}" alt="{{ $video['title'] }}" class="thumbnail-img">
+                    <div class="thumbnail-wrapper" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-src="{{ asset('storage/' . $video->video_path) }}">
+                        @if($video->thumbnail)
+                            <img src="{{ asset('storage/' . $video->thumbnail) }}" alt="{{ $video->title }}" class="thumbnail-img">
+                        @else
+                            <img src="{{ asset('images/aset1video.png') }}" alt="{{ $video->title }}" class="thumbnail-img">
+                        @endif
                         <div class="play-overlay">
                             <i class="bi bi-play-fill"></i>
                         </div>
-                        <div class="duration-badge">{{ $video['duration'] }}</div>
+                        <div class="duration-badge">{{ $video->duration }}</div>
                     </div>
                     <div class="card-body-custom">
-                        <h3 class="video-title">{{ $video['title'] }}</h3>
-                        <button class="btn-tonton" data-bs-toggle="modal" data-bs-target="#videoModal">
+                        <h3 class="video-title">{{ $video->title }}</h3>
+                        <button class="btn-tonton" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-src="{{ asset('storage/' . $video->video_path) }}">
                             <i class="bi bi-play-circle"></i> Tonton Video
                         </button>
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-12 text-center py-5">
+                <p class="text-gray-500">Belum ada video edukasi yang tersedia.</p>
+            </div>
+            @endforelse
         </div>
     </div>
 </div>
@@ -232,7 +229,7 @@
       </div>
       <div class="modal-body p-0">
         <video id="edukasiVideo" width="100%" controls>
-          <source src="{{ asset('images/videoedukasi.mp4') }}" type="video/mp4">
+          <source id="videoSource" src="" type="video/mp4">
           Browser Anda tidak mendukung tag video.
         </video>
       </div>
@@ -253,7 +250,12 @@
     });
 
     // Play video when modal is opened
-    videoModal.addEventListener('shown.bs.modal', function () {
+    videoModal.addEventListener('shown.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var videoSrc = button.getAttribute('data-video-src');
+        
+        // Use direct property instead of child source tag for wider browser compatibility when changing dynamically
+        edukasiVideo.src = videoSrc; 
         edukasiVideo.play();
     });
 </script>
