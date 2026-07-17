@@ -1,8 +1,12 @@
 <nav x-data="{ open: false }" class="bg-white border-r border-gray-100 w-64 shrink-0 flex flex-col hidden sm:flex">
     <!-- Logo -->
-    <div class="h-16 flex items-center justify-center border-b border-gray-100">
-        <a href="{{ route('dashboard') }}">
-            <x-application-logo class="block h-12 w-auto fill-current text-gray-800" />
+    <div class="h-20 flex items-center justify-center border-b border-gray-100 px-4">
+        <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
+            <x-application-logo class="block h-10 w-auto" />
+            <div class="flex flex-col">
+                <span class="font-bold text-lg text-green-700 leading-tight">DigiHejo</span>
+                <span class="text-[10px] text-gray-500 font-medium">SDN Kondangjaya II</span>
+            </div>
         </a>
     </div>
 
@@ -24,8 +28,9 @@
 
 <!-- Mobile Navigation (Hamburger Only) -->
 <div class="sm:hidden bg-white border-b border-gray-100 p-4 flex justify-between items-center" x-data="{ open: false }">
-    <a href="{{ route('dashboard') }}">
-        <x-application-logo class="block h-8 w-auto fill-current text-gray-800" />
+    <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
+        <x-application-logo class="block h-8 w-auto" />
+        <span class="font-bold text-green-700 text-lg">DigiHejo</span>
     </a>
 
     <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
