@@ -56,6 +56,14 @@
         .ck-editor__editable_inline {
             min-height: 250px;
         }
+        .ck-content ol {
+            list-style-type: decimal;
+            padding-left: 2em;
+        }
+        .ck-content ul {
+            list-style-type: disc;
+            padding-left: 2em;
+        }
     </style>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script>

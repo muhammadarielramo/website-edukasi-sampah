@@ -67,6 +67,22 @@
     .back-btn:hover {
         color: #3730a3;
     }
+    
+    .article-content-body ol {
+        list-style-type: decimal;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .article-content-body ul {
+        list-style-type: disc;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .article-content-body li {
+        margin-bottom: 0.5rem;
+    }
 </style>
 @endpush
 
