@@ -159,7 +159,7 @@
                                 <a href="{{ route('artikel.show', $article->slug) }}">{{ $article->title }}</a>
                             </h3>
                             <p class="article-excerpt">
-                                {{ Str::limit(strip_tags($article->content), 120) }}
+                                {{ Str::limit(str_replace('&nbsp;', ' ', strip_tags($article->content)), 120) }}
                             </p>
                             <div class="article-meta">
                                 <span><i class="bi bi-calendar3"></i> {{ $article->created_at->format('d M Y') }}</span>
