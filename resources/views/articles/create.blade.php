@@ -58,11 +58,11 @@
         }
         .ck-content ol {
             list-style-type: decimal;
-            padding-left: 2em;
+            padding-left: 1.25em;
         }
         .ck-content ul {
             list-style-type: disc;
-            padding-left: 2em;
+            padding-left: 1.25em;
         }
     </style>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>

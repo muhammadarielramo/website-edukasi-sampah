@@ -70,13 +70,13 @@
     
     .article-content-body ol {
         list-style-type: decimal;
-        padding-left: 2rem;
+        padding-left: 1.25rem;
         margin-bottom: 1rem;
     }
     
     .article-content-body ul {
         list-style-type: disc;
-        padding-left: 2rem;
+        padding-left: 1.25rem;
         margin-bottom: 1rem;
     }
     
