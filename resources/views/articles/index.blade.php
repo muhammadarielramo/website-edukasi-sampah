@@ -33,7 +33,7 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @forelse($articles as $index => $article)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $index + 1 }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $articles->firstItem() + $index }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $article->title }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $article->created_at->format('d M Y') }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -52,6 +52,10 @@
                                 @endforelse
                             </tbody>
                         </table>
+                    </div>
+
+                    <div class="mt-4">
+                        {{ $articles->links() }}
                     </div>
                 </div>
             </div>
