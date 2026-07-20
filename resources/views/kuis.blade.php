@@ -441,7 +441,7 @@
                     <span id="wrongCount">3</span>
                 </div>
                 
-                <button id="btnRestart" onclick="startQuiz()" class="btn-coba-lagi">
+                <button id="btnRestart" onclick="backToLanding()" class="btn-coba-lagi">
                     <i class="bi bi-arrow-clockwise"></i> Coba Lagi
                 </button>
             </div>
@@ -510,6 +510,61 @@
                 { text: "B. Plastik", icon: "bi-bag", isCorrect: false },
                 { text: "D. Sisa Sayur", icon: "bi-flower1", isCorrect: true }
             ]
+        },
+        {
+            image: "{{ asset('images/aset1kuis.png') }}",
+            text: "Mengapa membuang sampah sembarangan berbahaya bagi lingkungan?",
+            layout: 'list',
+            options: [
+                { text: "A. Membuat lingkungan lebih bersih", isCorrect: false },
+                { text: "B. Menyebabkan banjir dan penyakit", isCorrect: true },
+                { text: "C. Menyuburkan tanah", isCorrect: false },
+                { text: "D. Menambah keindahan kota", isCorrect: false }
+            ]
+        },
+        {
+            image: "{{ asset('images/aset2kuis.png') }}",
+            text: "Apa yang harus dilakukan dengan sampah botol plastik agar tidak mencemari lingkungan?",
+            layout: 'list',
+            options: [
+                { text: "A. Dibakar di halaman rumah", isCorrect: false },
+                { text: "B. Dibuang ke sungai atau laut", isCorrect: false },
+                { text: "C. Didaur ulang (Recycle)", isCorrect: true },
+                { text: "D. Dikubur di dalam tanah", isCorrect: false }
+            ]
+        },
+        {
+            image: "{{ asset('images/aset3kuis.png') }}",
+            text: "Contoh pemanfaatan sampah organik yang tepat adalah...",
+            layout: 'grid',
+            options: [
+                { text: "A. Daur Ulang Plastik", icon: "bi-recycle", isCorrect: false },
+                { text: "C. Dibuang ke Laut", icon: "bi-water", isCorrect: false },
+                { text: "B. Dibuat Kompos", icon: "bi-flower2", isCorrect: true },
+                { text: "D. Dibakar", icon: "bi-fire", isCorrect: false }
+            ]
+        },
+        {
+            image: "{{ asset('images/aset1kuis.png') }}",
+            text: "Tindakan apa yang termasuk dalam 'Reduce' (mengurangi sampah)?",
+            layout: 'list',
+            options: [
+                { text: "A. Membawa tas belanja sendiri dari rumah", isCorrect: true },
+                { text: "B. Membuat pot dari botol plastik bekas", isCorrect: false },
+                { text: "C. Mengumpulkan kertas bekas untuk didaur ulang", isCorrect: false },
+                { text: "D. Membeli barang dengan kemasan sekali pakai", isCorrect: false }
+            ]
+        },
+        {
+            image: "{{ asset('images/aset3kuis.png') }}",
+            text: "Barang yang bisa digunakan kembali (Reuse) di bawah ini adalah...",
+            layout: 'grid',
+            options: [
+                { text: "A. Tisu Bekas", icon: "bi-trash", isCorrect: false },
+                { text: "C. Botol Kaca", icon: "bi-cup", isCorrect: true },
+                { text: "B. Masker Medis", icon: "bi-bandaid", isCorrect: false },
+                { text: "D. Kulit Pisang", icon: "bi-tree", isCorrect: false }
+            ]
         }
     ];
 
@@ -537,6 +592,12 @@
 
     function quitQuiz() {
         quizScreen.style.display = 'none';
+        landingScreen.style.display = 'flex';
+    }
+
+    function backToLanding() {
+        resultScreen.style.display = 'none';
+        mainContainer.classList.remove('bg-fail', 'bg-success', 'bg-excellent');
         landingScreen.style.display = 'flex';
     }
 
