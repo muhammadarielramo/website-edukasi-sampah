@@ -23,8 +23,8 @@
         <!-- Left Side: Logo and Text -->
         <div class="flex flex-col items-center justify-center w-full md:w-1/2 mb-10 md:mb-0">
             <img src="{{ asset('images/logosdnkondangjaya2.png') }}" alt="Logo" class="w-48 h-48 object-contain mb-6" />
-            <h1 class="text-[#195bb2] text-3xl font-extrabold text-center uppercase tracking-wide leading-tight">
-                DIGIHEJO
+            <h1 class="text-[#195bb2] text-2xl md:text-3xl font-extrabold text-center uppercase tracking-wide leading-tight">
+                SDN KONDANGJAYA II
             </h1>
         </div>
 

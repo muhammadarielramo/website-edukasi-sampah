@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiHejo - Website Edukasi Pengelolaan Sampah SDN Kondangjaya 2</title>
+    <title>Website Edukasi Pengelolaan Sampah - SDN Kondangjaya II</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logosdnkondangjaya2.png') }}">
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -271,8 +271,8 @@
                     <img src="{{ asset('images/logosdnkondangjaya2.png') }}" alt="SDN Kondangjaya 2" class="logo-sdn">
                 </div>
                 <div class="brand-text-container">
-                    <h1 class="brand-title">DigiHejo</h1>
-                    <p class="brand-subtitle">Edukasi Sampah SDN Kondangjaya II</p>
+                    <h1 class="brand-title">SDN Kondangjaya II</h1>
+                    <p class="brand-subtitle">Kurangi Sampah, Selamatkan Masa Depan</p>
                 </div>
             </a>
             
@@ -346,7 +346,7 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                     <div class="d-flex align-items-center gap-2 mb-3">
                         <img src="{{ asset('images/logosdnkondangjaya2.png') }}" alt="SDN Kondangjaya 2" style="height: 50px; object-fit: contain;">
-                        <h5 class="fw-bold mb-0">DigiHejo</h5>
+                        <h5 class="fw-bold mb-0">SDN Kondangjaya II</h5>
                     </div>
                     <p class="mb-4" style="color: #e2e8f0; font-size: 0.95rem;">Edukasi Sampah SDN Kondangjaya II. Kurangi Sampah, Selamatkan Masa Depan.</p>
                     
@@ -406,7 +406,7 @@
             <hr style="border-color: rgba(255,255,255,0.2); margin-top: 2rem; margin-bottom: 1.5rem;">
             
             <div class="text-center">
-                <p class="mb-0" style="color: #e2e8f0; font-size: 0.9rem;">&copy; 2026 DigiHejo. All Rights Reserved.</p>
+                <p class="mb-0" style="color: #e2e8f0; font-size: 0.9rem;">&copy; 2026 SDN Kondangjaya II. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

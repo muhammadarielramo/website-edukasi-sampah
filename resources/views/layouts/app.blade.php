@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Admin - DigiHejo SDN Kondangjaya II</title>
+        <title>Admin - SDN Kondangjaya II</title>
         <link rel="icon" type="image/png" href="{{ asset('images/logosdnkondangjaya2.png') }}">
 
         <!-- Fonts -->

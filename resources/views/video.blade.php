@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Video Edukasi Lingkungan - DigiHejo')
+@section('title', 'Video Edukasi Lingkungan - SDN Kondangjaya II')
 
 @push('styles')
 <!-- Bootstrap Icons -->

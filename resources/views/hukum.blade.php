@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Hukum Menjaga Lingkungan - DigiHejo')
+@section('title', 'Hukum Menjaga Lingkungan - SDN Kondangjaya II')
 
 @push('styles')
 <style>

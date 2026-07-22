@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Belajar 3R - DigiHejo')
+@section('title', 'Belajar 3R - SDN Kondangjaya II')
 
 @push('styles')
 <style>

@@ -4,8 +4,8 @@
         <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
             <x-application-logo class="block h-10 w-auto" />
             <div class="flex flex-col">
-                <span class="font-bold text-lg text-green-700 leading-tight">DigiHejo</span>
-                <span class="text-[10px] text-gray-500 font-medium">SDN Kondangjaya II</span>
+                <span class="font-bold text-base text-green-700 leading-tight">SDN Kondangjaya II</span>
+                <span class="text-[10px] text-gray-500 font-medium">Edukasi Sampah</span>
             </div>
         </a>
     </div>
@@ -30,7 +30,7 @@
 <div class="sm:hidden bg-white border-b border-gray-100 p-4 flex justify-between items-center" x-data="{ open: false }">
     <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
         <x-application-logo class="block h-8 w-auto" />
-        <span class="font-bold text-green-700 text-lg">DigiHejo</span>
+        <span class="font-bold text-green-700 text-base">SDN Kondangjaya II</span>
     </a>
 
     <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">

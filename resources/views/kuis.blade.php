@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Quiz Edukasi - DigiHejo')
+@section('title', 'Quiz Edukasi - SDN Kondangjaya II')
 
 @push('styles')
 <!-- Bootstrap Icons -->
