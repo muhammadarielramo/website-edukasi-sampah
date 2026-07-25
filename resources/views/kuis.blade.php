@@ -262,34 +262,48 @@
         border-color: #38a169;
         border-width: 2px;
     }
-    @keyframes screenBlinkGreen {
+    /* Fixed Viewport Screen Flash Overlay */
+    .screen-flash-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+        display: none;
+    }
+
+    @keyframes fixedScreenBlinkGreen {
         0%, 100% {
-            box-shadow: inset 0 0 80px 20px rgba(34, 197, 94, 0.7);
-            background-color: #f0fdf4;
+            box-shadow: inset 0 0 80px 25px rgba(34, 197, 94, 0.75);
+            background-color: rgba(240, 253, 244, 0.15);
         }
         50% {
-            box-shadow: inset 0 0 20px 5px rgba(34, 197, 94, 0.25);
-            background-color: #ffffff;
+            box-shadow: inset 0 0 20px 5px rgba(34, 197, 94, 0.2);
+            background-color: rgba(255, 255, 255, 0);
         }
     }
 
-    @keyframes screenBlinkRed {
+    @keyframes fixedScreenBlinkRed {
         0%, 100% {
-            box-shadow: inset 0 0 80px 20px rgba(239, 68, 68, 0.7);
-            background-color: #fef2f2;
+            box-shadow: inset 0 0 80px 25px rgba(239, 68, 68, 0.75);
+            background-color: rgba(254, 226, 226, 0.15);
         }
         50% {
-            box-shadow: inset 0 0 20px 5px rgba(239, 68, 68, 0.25);
-            background-color: #ffffff;
+            box-shadow: inset 0 0 20px 5px rgba(239, 68, 68, 0.2);
+            background-color: rgba(255, 255, 255, 0);
         }
     }
 
-    .kuis-page.flash-correct {
-        animation: screenBlinkGreen 0.7s ease-in-out infinite;
+    .screen-flash-overlay.flash-correct {
+        display: block;
+        animation: fixedScreenBlinkGreen 1.2s ease-in-out infinite;
     }
 
-    .kuis-page.flash-incorrect {
-        animation: screenBlinkRed 0.7s ease-in-out infinite;
+    .screen-flash-overlay.flash-incorrect {
+        display: block;
+        animation: fixedScreenBlinkRed 1.2s ease-in-out infinite;
     }
 
     .option-item.correct {
@@ -446,6 +460,7 @@
 @endpush
 
 @section('content')
+<div id="screenFlashOverlay" class="screen-flash-overlay"></div>
 <div class="kuis-page" id="mainContainer">
     
     <!-- 1. LANDING SCREEN -->
@@ -696,10 +711,19 @@
         landingScreen.style.display = 'block';
     }
 
+    function setScreenFlash(type) {
+        const overlay = document.getElementById('screenFlashOverlay');
+        if (!overlay) return;
+        overlay.className = 'screen-flash-overlay';
+        if (type) {
+            overlay.classList.add(type);
+        }
+    }
+
     function loadQuestion() {
         isChecked = false;
         selectedOptionIndex = null;
-        mainContainer.classList.remove('flash-correct', 'flash-incorrect');
+        setScreenFlash(null);
         
         const q = questions[currentQuestionIndex];
         
@@ -797,12 +821,11 @@
             
             userAnswers[currentQuestionIndex] = isCorrect;
             
-            // Screen edge blinking flash effect
-            mainContainer.classList.remove('flash-correct', 'flash-incorrect');
+            // Fixed Viewport screen edge blinking flash effect
             if (isCorrect) {
-                mainContainer.classList.add('flash-correct');
+                setScreenFlash('flash-correct');
             } else {
-                mainContainer.classList.add('flash-incorrect');
+                setScreenFlash('flash-incorrect');
             }
             
             // Highlight options: only mark selected option
@@ -846,12 +869,12 @@
                         popup: 'animate__animated animate__zoomOut'
                     },
                     didClose: () => {
-                        mainContainer.classList.remove('flash-correct', 'flash-incorrect');
+                        setScreenFlash(null);
                     }
                 });
             } else {
                 Swal.fire({
-                    title: 'Yah, Kurang Tepat 😅',
+                    title: 'Yah, Kurang Tepat 😔',
                     html: '<div style="font-size: 4rem;">😿</div><p class="mt-2">Jangan menyerah, kamu bisa mencoba lagi!</p>',
                     showCancelButton: true,
                     confirmButtonColor: '#ef4444',
@@ -865,7 +888,7 @@
                         popup: 'animate__animated animate__zoomOut'
                     },
                     didClose: () => {
-                        mainContainer.classList.remove('flash-correct', 'flash-incorrect');
+                        setScreenFlash(null);
                     }
                 }).then((result) => {
                     if (result.isConfirmed) {
