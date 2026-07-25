@@ -613,7 +613,6 @@
             ]
         },
         {
-            image: "{{ asset('images/aset1kuis5.png') }}",
             text: "Mengapa kita harus membuang sampah pada tempatnya?",
             layout: 'list',
             options: [

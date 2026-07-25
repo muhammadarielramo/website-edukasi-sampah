@@ -332,8 +332,8 @@
                     </div>
                 </div>
 
-                <a href="#video-materi" class="btn-lihat-video">
-                    Lihat Semua Video <i class="bi bi-chevron-right"></i>
+                <a href="#video-materi" id="btnTontonVideo" class="btn-lihat-video">
+                    Tonton Video <i class="bi bi-play-circle-fill ms-1"></i>
                 </a>
             </div>
 
@@ -352,12 +352,12 @@
 
 <!-- Content after hero -->
 <div class="belajar-sampah-page">
-    <div class="container text-center mb-5 pb-5">
+    <div class="container text-center mb-5 pb-5" id="apa-itu-sampah">
         <h2 class="main-title">Apa Itu Sampah?</h2>
         <p class="main-subtitle">
             Sampah adalah barang yang sudah tidak digunakan lagi. Buanglah sampah pada tempatnya agar lingkungan tetap bersih.
         </p>
-
+        <!-- Cards -->
         <div class="row g-4 justify-content-center mt-2">
             <!-- Organik -->
             <div class="col-md-6 col-lg-4">
@@ -368,8 +368,8 @@
                     <p class="jenis-desc">Mudah membusuk dan bisa dijadikan kompos.</p>
                     <ul class="jenis-list text-start">
                         <li><i class="bi bi-leaf-fill" style="color: #4ade80;"></i> Daun</li>
-                        <li><i class="bi bi-apple" style="color: #f59e0b;"></i> kulit buah</li>
-                        <li><i class="bi bi-egg-fried" style="color: #4ade80;"></i> sisa makanan.</li>
+                        <li><i class="bi bi-apple" style="color: #f59e0b;"></i> Kulit buah</li>
+                        <li><i class="bi bi-egg-fried" style="color: #4ade80;"></i> Sisa makanan</li>
                     </ul>
                 </div>
             </div>
@@ -455,3 +455,53 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('btnTontonVideo');
+    const video = document.getElementById('video-materi');
+    const heroSection = document.querySelector('.hero-belajar');
+
+    function scrollToVideoAndPlay() {
+        if (!video) return;
+        const target = heroSection || video;
+        const yOffset = -90; // offset for sticky navbar
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        
+        setTimeout(function() {
+            video.play().catch(function(err) {
+                console.log("Autoplay prevented:", err);
+            });
+        }, 400);
+    }
+
+    if (btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            scrollToVideoAndPlay();
+        });
+    }
+
+    function scrollToElement(targetEl, offset) {
+        if (!targetEl) return;
+        const yOffset = offset !== undefined ? offset : -90;
+        const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+
+    if (window.location.hash === '#video-materi') {
+        setTimeout(function() {
+            scrollToVideoAndPlay();
+        }, 300);
+    } else if (window.location.hash === '#apa-itu-sampah') {
+        setTimeout(function() {
+            const section = document.getElementById('apa-itu-sampah');
+            scrollToElement(section, -150);
+        }, 300);
+    }
+});
+</script>
+@endpush
