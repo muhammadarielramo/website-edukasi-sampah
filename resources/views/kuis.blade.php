@@ -501,7 +501,7 @@
     <div class="container">
         <!-- 2. QUIZ SCREEN -->
         <div id="quizScreen" class="quiz-screen">
-            <h1 class="quiz-title-top">QUIZ START!</h1>
+            <h1 class="quiz-title-top" id="quizTitleTop">QUIZ NOMOR 1</h1>
             
             <div class="quiz-container">
                 <div class="quiz-header-bar">
@@ -727,7 +727,8 @@
         
         const q = questions[currentQuestionIndex];
         
-        // Update progress bar
+        // Update title and progress bar
+        document.getElementById('quizTitleTop').innerText = `QUIZ NOMOR ${currentQuestionIndex + 1}`;
         const progress = ((currentQuestionIndex) / questions.length) * 100;
         document.getElementById('progressBar').style.width = `${progress}%`;
         
