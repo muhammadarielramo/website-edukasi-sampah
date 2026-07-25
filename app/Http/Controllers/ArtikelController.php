@@ -36,7 +36,7 @@ class ArtikelController extends Controller
                 break;
         }
 
-        $articles = $query->paginate(9)->withQueryString();
+        $articles = $query->paginate(6)->withQueryString();
 
         return view('artikel.index', compact('articles'));
     }

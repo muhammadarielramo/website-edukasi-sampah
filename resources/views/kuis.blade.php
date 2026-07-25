@@ -30,76 +30,113 @@
 
     /* Landing Screen */
     .landing-screen {
-        padding: 50px 0 20px;
+        padding: 0 0 40px;
     }
-    .header-title {
-        color: #166534;
-        font-weight: 800;
-        font-size: 2.8rem;
-        margin-bottom: 15px;
+    .kuis-banner {
+        background-image: url('{{ asset("images/aset1kuis.png") }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        border-radius: 0;
+        padding: 50px 0;
+        min-height: 220px;
         display: flex;
         align-items: center;
-        gap: 12px;
+        margin-bottom: 45px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        border-bottom: 1px solid #f0f0f0;
     }
-    .leaf-icon {
-        color: #4ade80;
-        font-size: 2.2rem;
+    .kuis-banner-content {
+        max-width: 480px;
     }
-    .header-subtitle {
-        color: #4b5563;
-        font-size: 1.1rem;
-        line-height: 1.6;
-        max-width: 500px;
-        font-weight: 500;
+    .kuis-banner-title {
+        color: #14532d;
+        font-weight: 800;
+        font-size: 2.6rem;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
-    .header-image {
-        max-height: 220px;
-        object-fit: contain;
+    .kuis-banner-title i {
+        color: #22c55e;
+        font-size: 2rem;
+        transform: rotate(-10deg);
+    }
+    .kuis-banner-subtitle {
+        color: #374151;
+        font-size: 1.05rem;
+        line-height: 1.55;
+        font-weight: 600;
+        margin: 0;
     }
     .kuis-card-container {
         display: flex;
         justify-content: center;
-        margin-top: 40px;
+        margin-top: 10px;
     }
     .kuis-card {
-        border-radius: 12px;
+        border-radius: 16px;
         border: 2px solid #e5e7eb;
         background: #fff;
         overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         width: 100%;
-        max-width: 600px;
+        max-width: 520px;
+        position: relative;
+    }
+    .kuis-card-img-wrapper {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
         position: relative;
     }
     .kuis-card-img {
         width: 100%;
-        height: auto;
-        display: block;
-        padding: 20px;
+        height: 100%;
+        object-fit: cover;
+        object-position: 63% center;
     }
     .btn-mulai-container {
         position: absolute;
-        bottom: 40px;
+        bottom: 25px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
         display: flex;
         justify-content: center;
+        z-index: 5;
     }
     .btn-mulai {
-        background-color: #38a169;
+        background-color: #28a745;
         color: white;
-        border-radius: 10px;
-        padding: 12px 40px;
+        border-radius: 12px;
+        padding: 10px 42px;
         font-weight: 700;
         font-size: 1.3rem;
         border: none;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-        transition: background-color 0.3s;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.35);
+        transition: all 0.25s ease;
     }
     .btn-mulai:hover {
-        background-color: #2f855a;
+        background-color: #218838;
+        transform: scale(1.04);
         color: white;
+    }
+
+    @media (max-width: 768px) {
+        .kuis-banner {
+            padding: 30px 25px;
+            min-height: 180px;
+            background-position: left center;
+        }
+        .kuis-banner-title {
+            font-size: 1.8rem;
+        }
+        .kuis-banner-subtitle {
+            font-size: 0.95rem;
+        }
     }
 
     /* Quiz Screen */
@@ -154,24 +191,43 @@
         transition: width 0.3s ease;
     }
     .question-box {
-        background-color: #dcfce7;
-        border-radius: 15px;
-        padding: 20px;
+        background-color: #f0fdf4;
+        border: 1.5px solid #bbf7d0;
+        border-radius: 16px;
+        padding: 24px;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 20px;
+        text-align: center;
+        gap: 18px;
         margin-bottom: 30px;
     }
+    .question-image-wrapper {
+        width: 100%;
+        max-width: 520px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #e5e7eb;
+    }
     .question-image {
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        max-height: 260px;
         object-fit: contain;
+        border-radius: 8px;
+        display: block;
     }
     .question-text {
         font-weight: 700;
-        color: #111827;
-        font-size: 1.1rem;
+        color: #14532d;
+        font-size: 1.25rem;
         margin: 0;
+        line-height: 1.55;
     }
     
     .options-container {
@@ -206,24 +262,56 @@
         border-color: #38a169;
         border-width: 2px;
     }
+    @keyframes screenBlinkGreen {
+        0%, 100% {
+            box-shadow: inset 0 0 80px 20px rgba(34, 197, 94, 0.7);
+            background-color: #f0fdf4;
+        }
+        50% {
+            box-shadow: inset 0 0 20px 5px rgba(34, 197, 94, 0.25);
+            background-color: #ffffff;
+        }
+    }
+
+    @keyframes screenBlinkRed {
+        0%, 100% {
+            box-shadow: inset 0 0 80px 20px rgba(239, 68, 68, 0.7);
+            background-color: #fef2f2;
+        }
+        50% {
+            box-shadow: inset 0 0 20px 5px rgba(239, 68, 68, 0.25);
+            background-color: #ffffff;
+        }
+    }
+
+    .kuis-page.flash-correct {
+        animation: screenBlinkGreen 0.7s ease-in-out infinite;
+    }
+
+    .kuis-page.flash-incorrect {
+        animation: screenBlinkRed 0.7s ease-in-out infinite;
+    }
+
     .option-item.correct {
-        border-color: #22c55e;
-        color: #166534;
-        background-color: #f0fdf4;
+        border: 2px solid #22c55e !important;
+        color: #14532d !important;
+        background-color: #dcfce7 !important;
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
     }
     .option-item.incorrect {
-        border-color: #ef4444;
-        color: #991b1b;
-        background-color: #fef2f2;
+        border: 2px solid #ef4444 !important;
+        color: #991b1b !important;
+        background-color: #fee2e2 !important;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
     }
     .icon-result {
         font-size: 1.5rem;
     }
     .icon-result.correct {
-        color: #22c55e;
+        color: #16a34a !important;
     }
     .icon-result.incorrect {
-        color: #ef4444;
+        color: #dc2626 !important;
     }
     
     .option-grid-content {
@@ -359,38 +447,43 @@
 
 @section('content')
 <div class="kuis-page" id="mainContainer">
-    <div class="container">
+    
+    <!-- 1. LANDING SCREEN -->
+    <div id="landingScreen" class="landing-screen">
+        <!-- Banner Section (Full Width Edge to Edge) -->
+        <div class="kuis-banner">
+            <div class="container">
+                <div class="kuis-banner-content">
+                    <h1 class="kuis-banner-title">
+                        Quiz Edukasi 
+                        <i class="bi bi-leaf-fill"></i>
+                    </h1>
+                    <p class="kuis-banner-subtitle">
+                        Uji pengetahuanmu tentang lingkungan, sampah, dan cara menjaga bumi. Belajar sambil bermain, yuk!
+                    </p>
+                </div>
+            </div>
+        </div>
         
-        <!-- 1. LANDING SCREEN -->
-        <div id="landingScreen" class="landing-screen row align-items-center">
-            <div class="col-md-7 mb-4 mb-md-0">
-                <h1 class="header-title">
-                    Quiz Edukasi 
-                    <i class="bi bi-env leaf-icon" style="transform: rotate(-15deg);"></i>
-                </h1>
-                <p class="header-subtitle">
-                    Uji pengetahuanmu tentang lingkungan, sampah, dan cara menjaga bumi. Belajar sambil bermain, yuk!
-                </p>
-            </div>
-            <div class="col-md-5 d-none d-md-block text-end">
-                <img src="{{ asset('images/aset1kuis.png') }}" alt="Ilustrasi Anak Belajar" class="header-image">
-            </div>
-            
-            <div class="col-12 mt-4">
-                <hr style="border-color: #e5e7eb; margin: 20px 0 40px;">
-                <div class="kuis-card-container">
-                    <div class="kuis-card">
+        <!-- Mulai Quiz Card Section -->
+        <div class="container">
+            <div class="kuis-card-container">
+                <div class="kuis-card">
+                    <div class="kuis-card-img-wrapper">
                         <img src="{{ asset('images/aset1kuis.png') }}" alt="Mulai Quiz" class="kuis-card-img">
-                        <div class="btn-mulai-container">
-                            <button onclick="startQuiz()" class="btn-mulai text-decoration-none">
-                                Mulai Quiz
-                            </button>
-                        </div>
+                    </div>
+                    <div class="btn-mulai-container">
+                        <button onclick="startQuiz()" class="btn-mulai text-decoration-none">
+                            Mulai Quiz
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- Content Container for Quiz & Result Screens -->
+    <div class="container">
         <!-- 2. QUIZ SCREEN -->
         <div id="quizScreen" class="quiz-screen">
             <h1 class="quiz-title-top">QUIZ START!</h1>
@@ -404,7 +497,9 @@
                 </div>
                 
                 <div class="question-box">
-                    <img id="questionImage" src="" alt="Question" class="question-image">
+                    <div id="questionImageWrapper" class="question-image-wrapper">
+                        <img id="questionImage" src="" alt="Question" class="question-image">
+                    </div>
                     <p id="questionText" class="question-text"></p>
                 </div>
                 
@@ -436,6 +531,7 @@
                     <span>Benar</span>
                     <span id="correctCount">7</span>
                 </div>
+                
                 <div class="stat-bar stat-salah">
                     <span>Salah</span>
                     <span id="wrongCount">3</span>
@@ -446,124 +542,123 @@
                 </button>
             </div>
         </div>
-
     </div>
+
 </div>
 @endsection
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <script>
     // Quiz Data
     const questions = [
         {
-            image: "{{ asset('images/aset2kuis.png') }}",
-            text: "Sampah yang berasal dari sisa makanan, daun kering, dan kulit buah termasuk jenis sampah apa?",
+            image: "{{ asset('images/aset1kuis1.png') }}",
+            text: "Sisa makanan, daun, dan kulit buah termasuk jenis sampah apa?",
             layout: 'list',
             options: [
                 { text: "A. Sampah anorganik", isCorrect: false },
-                { text: "B. Sampah Organik", isCorrect: true },
-                { text: "C. Sampah B3 (Beracun dan berbahaya)", isCorrect: false },
-                { text: "D. Sampah Residu", isCorrect: false }
+                { text: "B. Sampah organik", isCorrect: true },
+                { text: "C. Sampah B3", isCorrect: false },
+                { text: "D. Sampah residu", isCorrect: false }
             ]
         },
         {
-            image: "{{ asset('images/aset3kuis.png') }}",
-            text: "Apa saja jenis sampah organik?",
-            layout: 'grid',
-            options: [
-                { text: "A. BATERAI", icon: "bi-battery-half", isCorrect: false },
-                { text: "C. BOTOL PLASTIK", icon: "bi-cup-straw", isCorrect: false },
-                { text: "B. DAUN", icon: "bi-tree", isCorrect: true },
-                { text: "D. LAMPU", icon: "bi-lightbulb", isCorrect: false }
-            ]
-        },
-        {
-            image: "{{ asset('images/aset1kuis.png') }}",
-            text: "Warna tempat sampah yang dikhususkan untuk sampah organik biasanya berwarna...",
+            image: "{{ asset('images/aset1kuis2.png') }}",
+            text: "Manakah yang termasuk sampah organik?",
             layout: 'list',
             options: [
-                { text: "A. Merah", isCorrect: false },
-                { text: "B. Kuning", isCorrect: false },
-                { text: "C. Hijau", isCorrect: true },
-                { text: "D. Biru", isCorrect: false }
+                { text: "A. Baterai", isCorrect: false },
+                { text: "B. Daun", isCorrect: true },
+                { text: "C. Botol plastik", isCorrect: false },
+                { text: "D. Lampu", isCorrect: false }
             ]
         },
         {
-            image: "{{ asset('images/aset3kuis.png') }}",
-            text: "Apa kepanjangan dari prinsip 3R dalam pengelolaan sampah?",
+            image: "{{ asset('images/aset1kuis3.png') }}",
+            text: "Botol bekas dibuat menjadi pot bunga. Ini termasuk...",
             layout: 'list',
             options: [
-                { text: "A. Reduce, Reuse, Recycle", isCorrect: true },
-                { text: "B. Redo, Return, Recycle", isCorrect: false },
-                { text: "C. Reduce, Remake, Return", isCorrect: false },
-                { text: "D. Recall, Reuse, Recycle", isCorrect: false }
+                { text: "A. Reduce", isCorrect: false },
+                { text: "B. Reuse", isCorrect: false },
+                { text: "C. Recycle", isCorrect: true },
+                { text: "D. Membuang sampah", isCorrect: false }
             ]
         },
         {
-            image: "{{ asset('images/aset2kuis.png') }}",
-            text: "Benda manakah yang BUKAN termasuk sampah anorganik?",
-            layout: 'grid',
-            options: [
-                { text: "A. Kaca", icon: "bi-cup", isCorrect: false },
-                { text: "C. Kaleng", icon: "bi-trash", isCorrect: false },
-                { text: "B. Plastik", icon: "bi-bag", isCorrect: false },
-                { text: "D. Sisa Sayur", icon: "bi-flower1", isCorrect: true }
-            ]
-        },
-        {
-            image: "{{ asset('images/aset1kuis.png') }}",
-            text: "Mengapa membuang sampah sembarangan berbahaya bagi lingkungan?",
+            image: "{{ asset('images/aset1kuis4.png') }}",
+            text: "Sampah apa yang bisa dibuat menjadi kompos?",
             layout: 'list',
             options: [
-                { text: "A. Membuat lingkungan lebih bersih", isCorrect: false },
-                { text: "B. Menyebabkan banjir dan penyakit", isCorrect: true },
-                { text: "C. Menyuburkan tanah", isCorrect: false },
-                { text: "D. Menambah keindahan kota", isCorrect: false }
+                { text: "A. Plastik", isCorrect: false },
+                { text: "B. Kaca", isCorrect: false },
+                { text: "C. Sisa sayur dan daun", isCorrect: true },
+                { text: "D. Kaleng", isCorrect: false }
             ]
         },
         {
-            image: "{{ asset('images/aset2kuis.png') }}",
-            text: "Apa yang harus dilakukan dengan sampah botol plastik agar tidak mencemari lingkungan?",
+            image: "{{ asset('images/aset1kuis5.png') }}",
+            text: "Mengapa kita harus membuang sampah pada tempatnya?",
             layout: 'list',
             options: [
-                { text: "A. Dibakar di halaman rumah", isCorrect: false },
-                { text: "B. Dibuang ke sungai atau laut", isCorrect: false },
-                { text: "C. Didaur ulang (Recycle)", isCorrect: true },
-                { text: "D. Dikubur di dalam tanah", isCorrect: false }
+                { text: "A. Agar lingkungan bersih dan sehat", isCorrect: true },
+                { text: "B. Agar sampah semakin banyak", isCorrect: false },
+                { text: "C. Agar sungai penuh sampah", isCorrect: false },
+                { text: "D. Agar halaman menjadi kotor", isCorrect: false }
             ]
         },
         {
-            image: "{{ asset('images/aset3kuis.png') }}",
-            text: "Contoh pemanfaatan sampah organik yang tepat adalah...",
-            layout: 'grid',
-            options: [
-                { text: "A. Daur Ulang Plastik", icon: "bi-recycle", isCorrect: false },
-                { text: "C. Dibuang ke Laut", icon: "bi-water", isCorrect: false },
-                { text: "B. Dibuat Kompos", icon: "bi-flower2", isCorrect: true },
-                { text: "D. Dibakar", icon: "bi-fire", isCorrect: false }
-            ]
-        },
-        {
-            image: "{{ asset('images/aset1kuis.png') }}",
-            text: "Tindakan apa yang termasuk dalam 'Reduce' (mengurangi sampah)?",
+            image: "{{ asset('images/aset1kuis6.png') }}",
+            text: "Tempat sampah organik biasanya berwarna apa?",
             layout: 'list',
             options: [
-                { text: "A. Membawa tas belanja sendiri dari rumah", isCorrect: true },
-                { text: "B. Membuat pot dari botol plastik bekas", isCorrect: false },
-                { text: "C. Mengumpulkan kertas bekas untuk didaur ulang", isCorrect: false },
-                { text: "D. Membeli barang dengan kemasan sekali pakai", isCorrect: false }
+                { text: "A. Hijau", isCorrect: true },
+                { text: "B. Merah", isCorrect: false },
+                { text: "C. Biru", isCorrect: false },
+                { text: "D. Hitam", isCorrect: false }
             ]
         },
         {
-            image: "{{ asset('images/aset3kuis.png') }}",
-            text: "Barang yang bisa digunakan kembali (Reuse) di bawah ini adalah...",
-            layout: 'grid',
+            image: "{{ asset('images/aset1kuis7.png') }}",
+            text: "Menulis di kedua sisi kertas adalah contoh...",
+            layout: 'list',
             options: [
-                { text: "A. Tisu Bekas", icon: "bi-trash", isCorrect: false },
-                { text: "C. Botol Kaca", icon: "bi-cup", isCorrect: true },
-                { text: "B. Masker Medis", icon: "bi-bandaid", isCorrect: false },
-                { text: "D. Kulit Pisang", icon: "bi-tree", isCorrect: false }
+                { text: "A. Reduce", isCorrect: true },
+                { text: "B. Recycle", isCorrect: false },
+                { text: "C. Membuang", isCorrect: false },
+                { text: "D. Membakar", isCorrect: false }
+            ]
+        },
+        {
+            text: "Siapa yang harus menjaga kebersihan lingkungan?",
+            layout: 'list',
+            options: [
+                { text: "A. Guru saja", isCorrect: false },
+                { text: "B. Petugas kebersihan saja", isCorrect: false },
+                { text: "C. Semua orang", isCorrect: true },
+                { text: "D. Orang dewasa saja", isCorrect: false }
+            ]
+        },
+        {
+            image: "{{ asset('images/aset1kuis9.png') }}",
+            text: "Sungai mana yang lebih baik untuk lingkungan?",
+            layout: 'list',
+            options: [
+                { text: "A. Sungai yang bersih", isCorrect: true },
+                { text: "B. Sungai yang penuh sampah", isCorrect: false },
+                { text: "C. Keduanya sama", isCorrect: false },
+                { text: "D. Tidak tahu", isCorrect: false }
+            ]
+        },
+        {
+            text: "Apa manfaat melakukan 3R (Reduce, Reuse, Recycle)?",
+            layout: 'list',
+            options: [
+                { text: "A. Lingkungan menjadi bersih dan sehat", isCorrect: true },
+                { text: "B. Sampah semakin banyak", isCorrect: false },
+                { text: "C. Udara menjadi kotor", isCorrect: false },
+                { text: "D. Sungai menjadi tersumbat", isCorrect: false }
             ]
         }
     ];
@@ -592,18 +687,19 @@
 
     function quitQuiz() {
         quizScreen.style.display = 'none';
-        landingScreen.style.display = 'flex';
+        landingScreen.style.display = 'block';
     }
 
     function backToLanding() {
         resultScreen.style.display = 'none';
         mainContainer.classList.remove('bg-fail', 'bg-success', 'bg-excellent');
-        landingScreen.style.display = 'flex';
+        landingScreen.style.display = 'block';
     }
 
     function loadQuestion() {
         isChecked = false;
         selectedOptionIndex = null;
+        mainContainer.classList.remove('flash-correct', 'flash-incorrect');
         
         const q = questions[currentQuestionIndex];
         
@@ -612,7 +708,13 @@
         document.getElementById('progressBar').style.width = `${progress}%`;
         
         // Update question content
-        document.getElementById('questionImage').src = q.image;
+        const imgWrapper = document.getElementById('questionImageWrapper');
+        if (q.image) {
+            imgWrapper.style.display = 'flex';
+            document.getElementById('questionImage').src = q.image;
+        } else {
+            imgWrapper.style.display = 'none';
+        }
         document.getElementById('questionText').innerText = q.text;
         
         // Update Buttons
@@ -673,7 +775,19 @@
         if (!isChecked) {
             // Checking answer phase
             if (selectedOptionIndex === null) {
-                alert('Pilih jawaban terlebih dahulu!');
+                Swal.fire({
+                    title: 'Pilih Jawaban Dulu! 😉',
+                    text: 'Silakan pilih salah satu jawaban sebelum menekan tombol CHECK.',
+                    icon: 'warning',
+                    confirmButtonColor: '#166534',
+                    confirmButtonText: 'Mengerti',
+                    showClass: {
+                        popup: 'animate__animated animate__headShake'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__zoomOut'
+                    }
+                });
                 return;
             }
             
@@ -683,28 +797,43 @@
             
             userAnswers[currentQuestionIndex] = isCorrect;
             
-            const selectedEl = document.getElementById(`option-${selectedOptionIndex}`);
-            selectedEl.classList.remove('selected');
-            
-            if (q.layout === 'list') {
-                if (isCorrect) {
-                    selectedEl.classList.add('correct');
-                    document.getElementById(`icon-${selectedOptionIndex}`).classList.add('bi-check-circle-fill', 'correct');
-                } else {
-                    selectedEl.classList.add('incorrect');
-                    document.getElementById(`icon-${selectedOptionIndex}`).classList.add('bi-x-circle-fill', 'incorrect');
-                }
+            // Screen edge blinking flash effect
+            mainContainer.classList.remove('flash-correct', 'flash-incorrect');
+            if (isCorrect) {
+                mainContainer.classList.add('flash-correct');
             } else {
-                // grid layout styling
-                if (isCorrect) {
-                    selectedEl.classList.add('correct');
-                } else {
-                    selectedEl.classList.add('incorrect');
-                }
+                mainContainer.classList.add('flash-incorrect');
             }
             
-            // Cute Popups using SweetAlert2
+            // Highlight options: only mark selected option
+            q.options.forEach((opt, idx) => {
+                const optionEl = document.getElementById(`option-${idx}`);
+                const iconEl = document.getElementById(`icon-${idx}`);
+                if (!optionEl) return;
+                
+                optionEl.classList.remove('selected');
+                
+                if (idx === selectedOptionIndex) {
+                    if (isCorrect) {
+                        optionEl.classList.add('correct');
+                        if (iconEl) iconEl.className = 'bi bi-check-circle-fill icon-result correct';
+                    } else {
+                        optionEl.classList.add('incorrect');
+                        if (iconEl) iconEl.className = 'bi bi-x-circle-fill icon-result incorrect';
+                    }
+                }
+            });
+            
+            // Cute Popups using SweetAlert2 & Confetti Effect
             if (isCorrect) {
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 100,
+                        spread: 75,
+                        origin: { y: 0.6 }
+                    });
+                }
+
                 Swal.fire({
                     title: 'Hore! Jawabanmu Benar! 🎉',
                     html: '<div style="font-size: 4rem;">🌟😺🌟</div>',
@@ -715,19 +844,32 @@
                     },
                     hideClass: {
                         popup: 'animate__animated animate__zoomOut'
+                    },
+                    didClose: () => {
+                        mainContainer.classList.remove('flash-correct', 'flash-incorrect');
                     }
                 });
             } else {
                 Swal.fire({
                     title: 'Yah, Kurang Tepat 😅',
-                    html: '<div style="font-size: 4rem;">😿</div><p class="mt-2">Tetap semangat belajarnya ya!</p>',
+                    html: '<div style="font-size: 4rem;">😿</div><p class="mt-2">Jangan menyerah, kamu bisa mencoba lagi!</p>',
+                    showCancelButton: true,
                     confirmButtonColor: '#ef4444',
-                    confirmButtonText: 'Oke',
+                    confirmButtonText: '🔄 Coba Lagi',
+                    cancelButtonColor: '#6b7280',
+                    cancelButtonText: 'Lanjut',
                     showClass: {
                         popup: 'animate__animated animate__headShake'
                     },
                     hideClass: {
                         popup: 'animate__animated animate__zoomOut'
+                    },
+                    didClose: () => {
+                        mainContainer.classList.remove('flash-correct', 'flash-incorrect');
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        resetCurrentQuestion();
                     }
                 });
             }
@@ -749,6 +891,13 @@
                 showResults();
             }
         }
+    }
+
+    function resetCurrentQuestion() {
+        isChecked = false;
+        selectedOptionIndex = null;
+        userAnswers[currentQuestionIndex] = null;
+        loadQuestion();
     }
 
     function prevQuestion() {
@@ -785,6 +934,10 @@
             resultTitle.style.color = '#16a34a';
             scoreCircle.style.borderColor = '#22c55e';
             scoreCircle.style.color = '#16a34a';
+
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 150, spread: 100, origin: { y: 0.5 } });
+            }
         } else if (score >= 70) {
             mainContainer.classList.add('bg-success');
             document.getElementById('resultSubtitle').innerText = 'Bagus! Kamu sudah cukup paham!';
@@ -794,6 +947,10 @@
             resultTitle.style.color = '#eab308';
             scoreCircle.style.borderColor = '#eab308';
             scoreCircle.style.color = '#ca8a04';
+
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 80, spread: 80, origin: { y: 0.6 } });
+            }
         } else {
             mainContainer.classList.add('bg-fail');
             document.getElementById('resultSubtitle').innerText = 'Terus belajar, kamu pasti bisa!';
