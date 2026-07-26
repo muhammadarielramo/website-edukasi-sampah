@@ -92,10 +92,13 @@
         z-index: 2;
     }
 
-    .video-wrapper video {
+    .video-wrapper video,
+    .video-wrapper iframe {
         width: 100%;
+        aspect-ratio: 16 / 9;
         display: block;
         border-radius: 12px;
+        border: none;
     }
 
     .leaf-decoration-left {
@@ -332,18 +335,15 @@
                     </div>
                 </div>
 
-                <a href="#video-materi" id="btnTontonVideo" class="btn-lihat-video">
-                    Tonton Video <i class="bi bi-play-circle-fill ms-1"></i>
+                <a href="{{ route('video-edukasi') }}" class="btn-lihat-video">
+                    Lihat Semua Video <i class="bi bi-arrow-right-circle-fill ms-1"></i>
                 </a>
             </div>
 
             <!-- Video Content -->
             <div class="col-lg-6">
                 <div class="video-wrapper">
-                    <video controls id="video-materi">
-                        <source src="{{ asset('images/videoedukasi.mp4') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <iframe width="100%" height="350" src="https://app.heygen.com/embeds/f0b8cddeca564b9bac8c3b41281d145e" title="Check out a new AI Video I just made!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; microphone; camera" allowfullscreen id="video-materi"></iframe>
                 </div>
             </div>
         </div>
@@ -472,9 +472,22 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
         
         setTimeout(function() {
-            video.play().catch(function(err) {
-                console.log("Autoplay prevented:", err);
-            });
+            if (video) {
+                if (video.tagName === 'IFRAME') {
+                    let currentSrc = video.getAttribute('src') || '';
+                    if (currentSrc && !currentSrc.includes('autoplay=1')) {
+                        currentSrc += (currentSrc.includes('?') ? '&' : '?') + 'autoplay=1';
+                        video.setAttribute('src', currentSrc);
+                    } else if (currentSrc) {
+                        // Refresh iframe src to re-trigger autoplay on user action
+                        video.setAttribute('src', currentSrc);
+                    }
+                } else if (typeof video.play === 'function') {
+                    video.play().catch(function(err) {
+                        console.log("Autoplay prevented:", err);
+                    });
+                }
+            }
         }, 400);
     }
 

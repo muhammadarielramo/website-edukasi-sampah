@@ -192,20 +192,22 @@
             @forelse($videos as $video)
             <div class="col-md-4">
                 <div class="video-card">
-                    <div class="thumbnail-wrapper" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-src="{{ asset('storage/' . $video->video_path) }}">
+                    <div class="thumbnail-wrapper" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-html="{{ base64_encode($video->embed_html) }}">
                         @if($video->thumbnail)
                             <img src="{{ asset('storage/' . $video->thumbnail) }}" alt="{{ $video->title }}" class="thumbnail-img">
                         @else
-                            <img src="{{ asset('images/aset1video.png') }}" alt="{{ $video->title }}" class="thumbnail-img">
+                            <img src="{{ asset('images/backgroundlandingpage.jpeg') }}" alt="{{ $video->title }}" class="thumbnail-img">
                         @endif
                         <div class="play-overlay">
                             <i class="bi bi-play-fill"></i>
                         </div>
-                        <div class="duration-badge">{{ $video->duration }}</div>
+                        @if(!empty($video->duration))
+                            <div class="duration-badge">{{ $video->duration }}</div>
+                        @endif
                     </div>
                     <div class="card-body-custom">
                         <h3 class="video-title">{{ $video->title }}</h3>
-                        <button class="btn-tonton" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-src="{{ asset('storage/' . $video->video_path) }}">
+                        <button class="btn-tonton" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-html="{{ base64_encode($video->embed_html) }}">
                             <i class="bi bi-play-circle"></i> Tonton Video
                         </button>
                     </div>
@@ -227,11 +229,7 @@
       <div class="modal-header justify-content-end">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body p-0">
-        <video id="edukasiVideo" width="100%" controls>
-          <source id="videoSource" src="" type="video/mp4">
-          Browser Anda tidak mendukung tag video.
-        </video>
+      <div class="modal-body p-0" id="videoModalBody">
       </div>
     </div>
   </div>
@@ -240,23 +238,29 @@
 
 @push('scripts')
 <script>
-    // Stop video when modal is closed
     const videoModal = document.getElementById('videoModal');
-    const edukasiVideo = document.getElementById('edukasiVideo');
+    const modalBody = document.getElementById('videoModalBody');
     
-    videoModal.addEventListener('hidden.bs.modal', function () {
-        edukasiVideo.pause();
-        edukasiVideo.currentTime = 0;
-    });
+    if (videoModal && modalBody) {
+        videoModal.addEventListener('show.bs.modal', function (event) {
+            const triggerEl = event.relatedTarget ? event.relatedTarget.closest('[data-video-html]') : null;
+            if (triggerEl) {
+                const base64Html = triggerEl.getAttribute('data-video-html');
+                if (base64Html) {
+                    try {
+                        modalBody.innerHTML = decodeURIComponent(escape(atob(base64Html)));
+                    } catch(e) {
+                        modalBody.innerHTML = atob(base64Html);
+                    }
+                    return;
+                }
+            }
+            modalBody.innerHTML = '<div class="p-4 text-center text-white">Video tidak tersedia</div>';
+        });
 
-    // Play video when modal is opened
-    videoModal.addEventListener('shown.bs.modal', function (event) {
-        var button = event.relatedTarget;
-        var videoSrc = button.getAttribute('data-video-src');
-        
-        // Use direct property instead of child source tag for wider browser compatibility when changing dynamically
-        edukasiVideo.src = videoSrc; 
-        edukasiVideo.play();
-    });
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            modalBody.innerHTML = '';
+        });
+    }
 </script>
 @endpush

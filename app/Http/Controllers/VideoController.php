@@ -23,19 +23,25 @@ class VideoController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'duration' => 'required|string|max:10', // e.g. 04:20
+            'video_type' => 'required|in:file,embed',
+            'video_file' => 'nullable|required_if:video_type,file|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime,video/webm|max:51200',
+            'embed_code' => 'nullable|required_if:video_type,embed|string',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'video_path' => 'required|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime|max:51200', // max 50MB
         ]);
 
-        $data = $request->only(['title', 'duration']);
+        $data = [
+            'title' => $request->title,
+            'duration' => '',
+        ];
+
+        if ($request->video_type === 'file' && $request->hasFile('video_file')) {
+            $data['video_path'] = $request->file('video_file')->store('videos', 'public');
+        } elseif ($request->video_type === 'embed') {
+            $data['video_path'] = trim($request->embed_code);
+        }
 
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
-        }
-
-        if ($request->hasFile('video_path')) {
-            $data['video_path'] = $request->file('video_path')->store('videos', 'public');
         }
 
         Video::create($data);
@@ -52,25 +58,33 @@ class VideoController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'duration' => 'required|string|max:10',
+            'video_type' => 'nullable|in:file,embed',
+            'video_file' => 'nullable|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime,video/webm|max:51200',
+            'embed_code' => 'nullable|string',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'video_path' => 'nullable|mimetypes:video/mp4,video/avi,video/mpeg,video/quicktime|max:51200',
         ]);
 
-        $data = $request->only(['title', 'duration']);
+        $data = [
+            'title' => $request->title,
+        ];
+
+        if ($request->video_type === 'file' && $request->hasFile('video_file')) {
+            if ($video->video_path && !\Illuminate\Support\Str::startsWith($video->video_path, ['http://', 'https://', '<iframe'])) {
+                Storage::disk('public')->delete($video->video_path);
+            }
+            $data['video_path'] = $request->file('video_file')->store('videos', 'public');
+        } elseif ($request->video_type === 'embed' && !empty($request->embed_code)) {
+            if ($video->video_path && !\Illuminate\Support\Str::startsWith($video->video_path, ['http://', 'https://', '<iframe'])) {
+                Storage::disk('public')->delete($video->video_path);
+            }
+            $data['video_path'] = trim($request->embed_code);
+        }
 
         if ($request->hasFile('thumbnail')) {
             if ($video->thumbnail) {
                 Storage::disk('public')->delete($video->thumbnail);
             }
             $data['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
-        }
-
-        if ($request->hasFile('video_path')) {
-            if ($video->video_path) {
-                Storage::disk('public')->delete($video->video_path);
-            }
-            $data['video_path'] = $request->file('video_path')->store('videos', 'public');
         }
 
         $video->update($data);
@@ -83,7 +97,7 @@ class VideoController extends Controller
         if ($video->thumbnail) {
             Storage::disk('public')->delete($video->thumbnail);
         }
-        if ($video->video_path) {
+        if ($video->video_path && !\Illuminate\Support\Str::startsWith($video->video_path, ['http://', 'https://', '<iframe'])) {
             Storage::disk('public')->delete($video->video_path);
         }
         

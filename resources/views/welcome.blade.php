@@ -325,8 +325,8 @@
                         </p>
                         <div class="d-flex align-items-center gap-4 mt-2">
                             <a href="{{ route('belajar-sampah') }}#apa-itu-sampah" class="btn-learn-more green-btn">Mulai Belajar</a>
-                            <a href="{{ route('belajar-sampah') }}#video-materi" class="btn-watch-video">
-                                <i class="bi bi-play-circle"></i> Tonton Video
+                            <a href="{{ route('video-edukasi') }}" class="btn-watch-video">
+                                <i class="bi bi-play-circle"></i> Lihat Semua Video
                             </a>
                         </div>
                     </div>

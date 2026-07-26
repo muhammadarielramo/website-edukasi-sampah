@@ -27,7 +27,6 @@
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thumbnail</th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judul</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durasi</th>
                                     <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                                 </tr>
                             </thead>
@@ -39,11 +38,10 @@
                                             @if($video->thumbnail)
                                                 <img src="{{ asset('storage/' . $video->thumbnail) }}" alt="{{ $video->title }}" class="h-12 w-20 object-cover rounded">
                                             @else
-                                                <span class="text-sm text-gray-500">No Image</span>
+                                                <img src="{{ asset('images/backgroundlandingpage.jpeg') }}" alt="{{ $video->title }}" class="h-12 w-20 object-cover rounded">
                                             @endif
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $video->title }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $video->duration }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href="{{ route('videos.edit', $video) }}" class="text-[#2F7426] hover:text-[#1a4316] mr-3">Edit</a>
                                             <form action="{{ route('videos.destroy', $video) }}" method="POST" class="inline-block" onsubmit="return confirm('Yakin ingin menghapus video ini?');">
@@ -55,7 +53,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="px-6 py-4 text-center text-sm text-gray-500">Belum ada video.</td>
+                                        <td colspan="4" class="px-6 py-4 text-center text-sm text-gray-500">Belum ada video.</td>
                                     </tr>
                                 @endforelse
                             </tbody>
