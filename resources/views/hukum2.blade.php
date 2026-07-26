@@ -40,8 +40,10 @@
     }
 
     .card2-body {
-        padding: 30px 20px 0 20px;
+        padding: 30px 20px 20px 20px;
         flex: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     .card2-img {
@@ -96,12 +98,13 @@
 
     /* Specific box styles */
     .box-artinya {
+        border: 2px solid #bbf7d0;
         background-color: #dcfce7;
         border-radius: 15px;
         padding: 20px;
         position: relative;
-        margin-top: 30px;
-        margin-bottom: 20px;
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 
     .badge-artinya {
@@ -133,6 +136,7 @@
     }
 
     .box-green-bg {
+        border: 2px solid #bbf7d0;
         background-color: #dcfce7;
         border-radius: 15px;
         padding: 20px 15px;
@@ -195,7 +199,7 @@
 <div class="hukum2-page">
     <!-- Hero Banner -->
     <div class="hero-hukum2-wrapper">
-        <img src="{{ asset('images/aset1hukum1.png') }}" class="hero-hukum2-bg" alt="Aturan Negara Background">
+        <img src="{{ asset('images/aset2hukum.png') }}" class="hero-hukum2-bg" alt="Aturan Negara Background">
     </div>
 
     <!-- Cards Section -->
@@ -208,15 +212,18 @@
                         <div class="card2-body">
                             <div class="card2-header-title">
                                 <span class="badge-number bg-green-2">1</span>
-                                <h3 class="card2-title-text text-green-1">UUD Negara Republik<br>Indonesia Tahun 1945 Pasal<br>28H Ayat(1)</h3>
+                                <h3 class="card2-title-text text-green-1">UUD Negara Republik<br>Indonesia Tahun 1945 Pasal<br>28H Ayat (1)</h3>
                             </div>
+                            <p class="card2-desc">
+                                Pasal ini menegaskan bahwa setiap warga negara, termasuk anak-anak, berhak atas lingkungan yang bersih dan sehat.
+                            </p>
                             
                             <div class="box-artinya">
                                 <span class="badge-artinya">Artinya untuk adik-adik:</span>
                                 <p>Setiap anak berhak bermain, belajar, dan tinggal di tempat yang bersih, nyaman, dan tidak penuh sampah. Karena itu, kita juga harus ikut menjaga kebersihan lingkungan.</p>
                             </div>
                         </div>
-                        <img src="{{ asset('images/aset2hukum1.png') }}" alt="Ilustrasi Anak Bermain" class="card2-img mt-auto">
+                        <img src="{{ asset('images/aset2hukum2.png') }}" alt="Ilustrasi Anak Bermain" class="card2-img mt-auto">
                     </div>
                 </div>
                 

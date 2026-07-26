@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" href="{{ asset('images/logosdnkondangjaya2.png') }}">
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,11 +81,24 @@
         }
 
         .nav-link:hover, .nav-link.active {
-            color: #2b6cb0 !important;
+            color: #166534 !important;
         }
 
         .nav-item.active-item {
-            border-bottom: 3px solid #2b6cb0;
+            border-bottom: 3px solid #166534;
+        }
+
+        .dropdown-item {
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus,
+        .dropdown-item.active {
+            background-color: #f0fdf4 !important;
+            color: #166534 !important;
         }
 
         .btn-login {
@@ -101,19 +116,105 @@
             color: #ffffff;
         }
 
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon,
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231f2937'%3e%3cpath d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854z'/%3e%3c/svg%3e") !important;
+        }
+
         @media (max-width: 991.98px) {
+            .navbar {
+                position: relative !important;
+            }
+            .navbar .container-fluid {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            .navbar-brand {
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                max-width: calc(100% - 56px) !important;
+                margin-right: 0 !important;
+            }
+            .logo-tutwuri {
+                height: 34px !important;
+            }
+            .logo-sdn {
+                height: 42px !important;
+            }
             .brand-title {
-                font-size: 1rem;
+                font-size: 0.95rem !important;
+                line-height: 1.1 !important;
             }
             .brand-subtitle {
-                font-size: 0.75rem;
+                font-size: 0.68rem !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            .navbar-toggler {
+                padding: 4px 8px !important;
+                font-size: 0.85rem !important;
+                margin-left: auto !important;
             }
             .navbar-collapse {
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-                margin-top: 15px;
+                position: absolute !important;
+                top: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                background: #ffffff !important;
+                padding: 16px 20px !important;
+                border-radius: 0 0 16px 16px !important;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+                z-index: 1050 !important;
+                max-height: calc(100vh - 80px) !important;
+                overflow-y: auto !important;
+                border-top: 1px solid #f1f5f9 !important;
+                margin-top: 0 !important;
+            }
+            .navbar-nav {
+                align-items: flex-start !important;
+                text-align: left !important;
+                width: 100% !important;
+                gap: 6px !important;
+            }
+            .nav-item {
+                width: 100% !important;
+                text-align: left !important;
+            }
+            .nav-link {
+                width: 100% !important;
+                text-align: left !important;
+                padding: 10px 14px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            .nav-link.dropdown-toggle::after {
+                margin-left: auto !important;
+            }
+            .nav-item.active-item {
+                border-bottom: none !important;
+                border-left: 4px solid #166534 !important;
+                border-radius: 4px !important;
+                background-color: #f0fdf4 !important;
+            }
+            .dropdown-menu {
+                width: 100% !important;
+                background-color: #f8fafc !important;
+                border-radius: 8px !important;
+                padding: 8px 12px !important;
+                margin-top: 4px !important;
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .dropdown-item {
+                padding: 8px 12px !important;
+                text-align: left !important;
+                border-radius: 6px !important;
             }
         }
         
@@ -165,11 +266,11 @@
                 </div>
                 <div class="brand-text-container">
                     <h1 class="brand-title">SDN Kondangjaya II</h1>
-                    <p class="brand-subtitle">Kurangi Sampah, Selamatkan Masa Depan</p>
+                    <p class="brand-subtitle">Kurangi Sampah, Jagalah Bumi</p>
                 </div>
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -217,7 +318,7 @@
                         <img src="{{ asset('images/logosdnkondangjaya2.png') }}" alt="SDN Kondangjaya 2" style="height: 50px; object-fit: contain;">
                         <h5 class="fw-bold mb-0">SDN Kondangjaya II</h5>
                     </div>
-                    <p class="mb-4" style="color: #e2e8f0; font-size: 0.95rem;">Edukasi Sampah SDN Kondangjaya II. Kurangi Sampah, Selamatkan Masa Depan.</p>
+                    <p class="mb-4" style="color: #e2e8f0; font-size: 0.95rem;">Edukasi Sampah SDN Kondangjaya II. Kurangi Sampah, Jagalah Bumi.</p>
                     
                     <h5 class="footer-title">Alamat</h5>
                     <p class="mb-3" style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;">

@@ -58,7 +58,7 @@
     }
     
     .article-title a:hover {
-        color: #2563eb;
+        color: #166534;
     }
     
     .article-excerpt {
@@ -82,7 +82,7 @@
     }
     
     .page-header {
-        background-color: #f3f4f6;
+        background-color: #f0fdf4;
         padding: 60px 0;
         margin-bottom: 40px;
     }
@@ -90,13 +90,65 @@
     .page-title {
         font-size: 2.5rem;
         font-weight: 800;
-        color: #111827;
+        color: #166534;
         margin-bottom: 10px;
     }
     
     .page-subtitle {
         font-size: 1.1rem;
         color: #4b5563;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #166534 !important;
+        border-color: #166534 !important;
+        color: #ffffff !important;
+    }
+    .pagination .page-link {
+        color: #166534 !important;
+    }
+
+    .pagination-wrapper nav .d-sm-none {
+        display: none !important;
+    }
+
+    .pagination-wrapper nav .d-sm-flex,
+    .pagination-wrapper nav > div:last-child {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .pagination-wrapper nav p {
+        margin-bottom: 0 !important;
+        text-align: center !important;
+        font-size: 0.875rem !important;
+        color: #6b7280 !important;
+    }
+
+    .pagination-wrapper .pagination {
+        margin-bottom: 0 !important;
+        justify-content: center !important;
+    }
+
+    .form-control:hover,
+    .form-select:hover {
+        border-color: #166534 !important;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #166534 !important;
+        box-shadow: 0 0 0 0.25rem rgba(22, 101, 52, 0.2) !important;
+    }
+
+    .input-group:hover .input-group-text,
+    .input-group:focus-within .input-group-text {
+        border-color: #166534 !important;
+        color: #166534 !important;
     }
 </style>
 @endpush
@@ -135,7 +187,7 @@
                         </select>
                     </div>
                     <div class="col-md-2 col-lg-1">
-                        <button type="submit" class="btn text-white w-100" style="background-color: #2b6cb0;">Cari</button>
+                        <button type="submit" class="btn text-white w-100" style="background-color: #166534;">Cari</button>
                     </div>
                 </div>
             </form>
@@ -163,7 +215,7 @@
                             </p>
                             <div class="article-meta">
                                 <span><i class="bi bi-calendar3"></i> {{ $article->created_at->format('d M Y') }}</span>
-                                <a href="{{ route('artikel.show', $article->slug) }}" class="text-primary text-decoration-none fw-semibold">Baca selengkapnya &rarr;</a>
+                                <a href="{{ route('artikel.show', $article->slug) }}" class="text-decoration-none fw-semibold" style="color: #166534;">Baca selengkapnya &rarr;</a>
                             </div>
                         </div>
                     </div>
@@ -171,7 +223,7 @@
             @endforeach
         </div>
         
-        <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center mt-5 pagination-wrapper">
             {{ $articles->links('pagination::bootstrap-5') }}
         </div>
     @else

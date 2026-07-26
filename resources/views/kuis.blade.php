@@ -30,112 +30,181 @@
 
     /* Landing Screen */
     .landing-screen {
-        padding: 0 0 40px;
+        padding: 32px 0 56px;
+        background:
+            radial-gradient(circle at 10% 10%, rgba(187, 247, 208, .7), transparent 32%),
+            radial-gradient(circle at 90% 85%, rgba(254, 240, 138, .55), transparent 30%),
+            #f7fcf8;
     }
     .kuis-banner {
-        background-image: url('{{ asset("images/aset1kuis.png") }}');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        border-radius: 0;
-        padding: 50px 0;
-        min-height: 220px;
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, .85fr);
         align-items: center;
-        margin-bottom: 45px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-        border-bottom: 1px solid #f0f0f0;
+        gap: 34px;
+        max-width: 1040px;
+        min-height: 480px;
+        margin: 0 auto;
+        padding: 52px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(22, 101, 52, .10);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, .94);
+        box-shadow: 0 24px 60px rgba(20, 83, 45, .12);
+    }
+    .kuis-banner::before {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        right: -100px;
+        top: -110px;
+        border-radius: 50%;
+        background: #dcfce7;
     }
     .kuis-banner-content {
-        max-width: 480px;
+        max-width: 510px;
+        position: relative;
+        z-index: 2;
+    }
+    .kuis-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 13px;
+        margin-bottom: 18px;
+        border-radius: 999px;
+        color: #166534;
+        background: #dcfce7;
+        font-size: .82rem;
+        font-weight: 800;
+        letter-spacing: .04em;
+        text-transform: uppercase;
     }
     .kuis-banner-title {
-        color: #14532d;
+        color: #153e2a;
         font-weight: 800;
-        font-size: 2.6rem;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .kuis-banner-title i {
-        color: #22c55e;
-        font-size: 2rem;
-        transform: rotate(-10deg);
+        font-size: clamp(2.25rem, 5vw, 3.75rem);
+        line-height: 1.08;
+        letter-spacing: -.045em;
+        margin-bottom: 18px;
     }
     .kuis-banner-subtitle {
-        color: #374151;
-        font-size: 1.05rem;
-        line-height: 1.55;
-        font-weight: 600;
-        margin: 0;
+        color: #52635a;
+        font-size: 1rem;
+        line-height: 1.75;
+        font-weight: 500;
+        margin: 0 0 26px;
     }
-    .kuis-card-container {
+    .kuis-benefits {
         display: flex;
-        justify-content: center;
-        margin-top: 10px;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        padding: 0;
+        margin: 0 0 30px;
+        list-style: none;
     }
-    .kuis-card {
-        border-radius: 16px;
-        border: 2px solid #e5e7eb;
-        background: #fff;
-        overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        width: 100%;
-        max-width: 520px;
+    .kuis-benefits li {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: #315a43;
+        font-size: .9rem;
+        font-weight: 700;
+    }
+    .kuis-benefits i {
+        color: #22c55e;
+    }
+    .kuis-illustration {
+        min-width: 0;
         position: relative;
+        z-index: 1;
     }
     .kuis-card-img-wrapper {
         width: 100%;
-        height: 280px;
+        aspect-ratio: 1 / 1.04;
         overflow: hidden;
         position: relative;
+        border-radius: 26px;
+        background: linear-gradient(145deg, #f0fdf4, #fefce8);
+        box-shadow: inset 0 0 0 1px rgba(22, 101, 52, .08);
     }
     .kuis-card-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 63% center;
-    }
-    .btn-mulai-container {
-        position: absolute;
-        bottom: 25px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        z-index: 5;
+        object-position: 64% center;
     }
     .btn-mulai {
-        background-color: #28a745;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
         color: white;
-        border-radius: 12px;
-        padding: 10px 42px;
-        font-weight: 700;
-        font-size: 1.3rem;
+        border-radius: 14px;
+        padding: 14px 24px;
+        font-weight: 800;
+        font-size: 1rem;
         border: none;
-        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.35);
+        box-shadow: 0 10px 22px rgba(34, 197, 94, .28);
         transition: all 0.25s ease;
     }
     .btn-mulai:hover {
-        background-color: #218838;
-        transform: scale(1.04);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(34, 197, 94, .35);
         color: white;
+    }
+    .btn-mulai:focus-visible {
+        outline: 3px solid rgba(34, 197, 94, .3);
+        outline-offset: 4px;
     }
 
     @media (max-width: 768px) {
+        .landing-screen {
+            padding: 16px 14px 32px;
+        }
         .kuis-banner {
-            padding: 30px 25px;
-            min-height: 180px;
-            background-position: left center;
+            grid-template-columns: 1fr;
+            gap: 26px;
+            min-height: auto;
+            padding: 28px 22px 22px;
+            border-radius: 22px;
+        }
+        .kuis-eyebrow {
+            margin-bottom: 14px;
         }
         .kuis-banner-title {
-            font-size: 1.8rem;
+            font-size: 2.15rem;
+            margin-bottom: 14px;
         }
         .kuis-banner-subtitle {
-            font-size: 0.95rem;
+            font-size: .94rem;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .kuis-benefits {
+            margin-bottom: 24px;
+        }
+        .btn-mulai {
+            width: 100%;
+        }
+        .kuis-card-img-wrapper {
+            aspect-ratio: 16 / 10;
+            border-radius: 18px;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .landing-screen {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .kuis-banner {
+            padding: 24px 18px 18px;
+        }
+        .kuis-banner-title {
+            font-size: 1.85rem;
         }
     }
 
@@ -465,32 +534,33 @@
     
     <!-- 1. LANDING SCREEN -->
     <div id="landingScreen" class="landing-screen">
-        <!-- Banner Section (Full Width Edge to Edge) -->
-        <div class="kuis-banner">
-            <div class="container">
+        <div class="container">
+            <div class="kuis-banner">
                 <div class="kuis-banner-content">
+                    <span class="kuis-eyebrow">
+                        <i class="bi bi-stars"></i>
+                        Belajar sambil bermain
+                    </span>
                     <h1 class="kuis-banner-title">
-                        Quiz Edukasi 
-                        <i class="bi bi-leaf-fill"></i>
+                        Seberapa peduli kamu dengan bumi?
                     </h1>
                     <p class="kuis-banner-subtitle">
-                        Uji pengetahuanmu tentang lingkungan, sampah, dan cara menjaga bumi. Belajar sambil bermain, yuk!
+                        Uji pengetahuanmu tentang sampah dan lingkungan melalui pertanyaan singkat yang seru.
                     </p>
+                    <ul class="kuis-benefits">
+                        <li><i class="bi bi-check-circle-fill"></i> 10 pertanyaan</li>
+                        <li><i class="bi bi-clock-fill"></i> ± 5 menit</li>
+                        <li><i class="bi bi-trophy-fill"></i> Lihat skor langsung</li>
+                    </ul>
+                    <button type="button" onclick="startQuiz()" class="btn-mulai">
+                        Mulai Quiz
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Mulai Quiz Card Section -->
-        <div class="container">
-            <div class="kuis-card-container">
-                <div class="kuis-card">
+
+                <div class="kuis-illustration">
                     <div class="kuis-card-img-wrapper">
                         <img src="{{ asset('images/aset1kuis.png') }}" alt="Mulai Quiz" class="kuis-card-img">
-                    </div>
-                    <div class="btn-mulai-container">
-                        <button onclick="startQuiz()" class="btn-mulai text-decoration-none">
-                            Mulai Quiz
-                        </button>
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@
                                 </label>
                                 <label class="inline-flex items-center cursor-pointer">
                                     <input type="radio" name="video_type" value="embed" x-model="videoType" class="text-green-600 focus:ring-green-500">
-                                    <span class="ml-2 text-sm font-medium text-gray-700">Link Embed / Iframe (YouTube, HeyGen, dll)</span>
+                                    <span class="ml-2 text-sm font-medium text-gray-700">Link Embed / Iframe Video</span>
                                 </label>
                             </div>
 
@@ -50,8 +50,8 @@
                             <!-- Embed Code / URL Input -->
                             <div x-show="videoType === 'embed'" x-cloak class="mt-3">
                                 <label for="embed_code" class="block text-xs font-medium text-gray-600 mb-1">Link Embed Video / Kode &lt;iframe&gt;</label>
-                                <textarea name="embed_code" id="embed_code" rows="3" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 text-sm" placeholder="Paste URL YouTube/HeyGen/Vimeo atau kode <iframe src='...'></iframe>">{{ old('embed_code', $video->is_embed ? $video->video_path : '') }}</textarea>
-                                <p class="text-xs text-gray-500 mt-1">Bisa berisi URL (contoh: https://www.youtube.com/watch?v=xxx, https://app.heygen.com/embeds/xxx) atau langsung kode &lt;iframe&gt;&lt;/iframe&gt;.</p>
+                                <textarea name="embed_code" id="embed_code" rows="3" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 text-sm" placeholder="Paste URL video atau kode <iframe src='...'></iframe>">{{ old('embed_code', $video->is_embed ? $video->video_path : '') }}</textarea>
+                                <p class="text-xs text-gray-500 mt-1">Bisa berisi URL video (seperti YouTube, dll) atau langsung kode &lt;iframe&gt;&lt;/iframe&gt;.</p>
                                 @error('embed_code')
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                 @enderror

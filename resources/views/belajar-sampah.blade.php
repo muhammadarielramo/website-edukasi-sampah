@@ -177,6 +177,19 @@
         gap: 10px;
     }
 
+    .jenis-icon {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
+
+    .item-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
     .jenis-desc {
         color: #4b5563;
         font-weight: 600;
@@ -205,12 +218,12 @@
     /* Bottom Section */
     .mengapa-section {
         background-color: #ffffff;
-        border-top-left-radius: 40px;
-        border-top-right-radius: 40px;
-        padding: 60px 0;
-        box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+        border-radius: 32px;
+        padding: 50px 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         position: relative;
         z-index: 2;
+        border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     .mengapa-title {
@@ -363,28 +376,28 @@
             <div class="col-md-6 col-lg-4">
                 <div class="jenis-card card-organik">
                     <h3 class="jenis-title">
-                        <i class="bi bi-tree-fill" style="color: #4ade80;"></i> Organik
+                        <img src="{{ asset('images/aset1belajarsampah1.png') }}" alt="Organik" class="jenis-icon"> Organik
                     </h3>
                     <p class="jenis-desc">Mudah membusuk dan bisa dijadikan kompos.</p>
                     <ul class="jenis-list text-start">
-                        <li><i class="bi bi-leaf-fill" style="color: #4ade80;"></i> Daun</li>
-                        <li><i class="bi bi-apple" style="color: #f59e0b;"></i> Kulit buah</li>
-                        <li><i class="bi bi-egg-fried" style="color: #4ade80;"></i> Sisa makanan</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah4.png') }}" alt="Daun" class="item-icon"> Daun</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah5.png') }}" alt="Kulit buah" class="item-icon"> Kulit buah</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah6.png') }}" alt="Sisa makanan" class="item-icon"> Sisa makanan</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Non Organik -->
+            <!-- Anorganik -->
             <div class="col-md-6 col-lg-4">
                 <div class="jenis-card">
                     <h3 class="jenis-title">
-                        <i class="bi bi-recycle" style="color: #16a34a;"></i> Non Organik
+                        <img src="{{ asset('images/aset1belajarsampah2.png') }}" alt="Anorganik" class="jenis-icon"> Anorganik
                     </h3>
                     <p class="jenis-desc">Sulit terurai, tetapi bisa didaur ulang.</p>
                     <ul class="jenis-list text-start">
-                        <li><i class="bi bi-cup-straw" style="color: #ef4444;"></i> Botol Plastik</li>
-                        <li><i class="bi bi-trash3-fill" style="color: #ef4444;"></i> Kaleng</li>
-                        <li><i class="bi bi-droplet-fill" style="color: #d1d5db;"></i> Botol Kaca</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah7.png') }}" alt="Botol Plastik" class="item-icon"> Botol Plastik</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah8.png') }}" alt="Kaleng" class="item-icon"> Kaleng</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah9.png') }}" alt="Botol Kaca" class="item-icon"> Botol Kaca</li>
                     </ul>
                 </div>
             </div>
@@ -393,12 +406,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="jenis-card">
                     <h3 class="jenis-title">
-                        <i class="bi bi-exclamation-triangle-fill" style="color: #eab308;"></i> Sampah B3
+                        <img src="{{ asset('images/aset1belajarsampah3.png') }}" alt="Sampah B3" class="jenis-icon"> Sampah B3
                     </h3>
                     <p class="jenis-desc">Mengandung bahan berbahaya</p>
                     <ul class="jenis-list text-start">
-                        <li><i class="bi bi-battery-half" style="color: #22c55e;"></i> Baterai</li>
-                        <li><i class="bi bi-lightbulb" style="color: #d1d5db;"></i> Lampu</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah10.png') }}" alt="Baterai" class="item-icon"> Baterai</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah11.png') }}" alt="Lampu" class="item-icon"> Lampu</li>
+                        <li><img src="{{ asset('images/aset1belajarsampah12.png') }}" alt="Obat kedaluwarsa" class="item-icon"> Obat kedaluwarsa</li>
                     </ul>
                 </div>
             </div>
@@ -406,8 +420,8 @@
     </div>
 
     <!-- Mengapa Peduli Sampah Section -->
-    <div class="mengapa-section">
-        <div class="container">
+    <div class="container pb-5">
+        <div class="mengapa-section">
             <h2 class="mengapa-title">Mengapa Peduli Sampah?</h2>
             
             <div class="row g-4 justify-content-center">

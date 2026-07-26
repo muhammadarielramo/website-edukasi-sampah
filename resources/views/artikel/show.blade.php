@@ -5,16 +5,16 @@
 @push('styles')
 <style>
     .article-header {
-        background-color: #f8fafc;
+        background-color: #f0fdf4;
         padding: 60px 0;
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid #dcfce7;
         margin-bottom: 40px;
     }
     
     .article-title-large {
         font-size: 2.5rem;
         font-weight: 800;
-        color: #0f172a;
+        color: #166534;
         line-height: 1.3;
         margin-bottom: 20px;
     }
@@ -57,7 +57,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: #4f46e5;
+        color: #166534;
         font-weight: 600;
         text-decoration: none;
         margin-bottom: 20px;
@@ -65,7 +65,7 @@
     }
     
     .back-btn:hover {
-        color: #3730a3;
+        color: #14532d;
     }
     
     .article-content-body ol {

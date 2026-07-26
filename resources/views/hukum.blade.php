@@ -113,19 +113,20 @@
     }
 
     .checklist-hukum li {
-        margin-bottom: 15px;
-        font-weight: 600;
+        margin-bottom: 16px;
+        font-weight: 700;
         color: #1f2937;
         display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-size: 0.95rem;
+        align-items: center;
+        gap: 12px;
+        font-size: 1rem;
     }
 
-    .checklist-hukum li i {
-        color: #15803d;
-        font-size: 1.3rem;
-        margin-top: -3px;
+    .check-svg-icon {
+        width: 30px;
+        height: 30px;
+        color: #28602b;
+        flex-shrink: 0;
     }
 
     .bottom-section-wrapper {
@@ -221,11 +222,8 @@
 <div class="hukum-page">
     <!-- Hero Banner -->
     <div class="hero-hukum-wrapper">
-        <img src="{{ asset('images/aset2hukum.png') }}" class="hero-hukum-bg" alt="Background Hukum">
+        <img src="{{ asset('images/aset1hukum1.png') }}" class="hero-hukum-bg" alt="Background Hukum">
         <div class="hero-hukum-content">
-            <div class="halaman-badge">
-                Halaman<br>1/4
-            </div>
             <div class="container h-100 position-relative">
                 <div class="row h-100">
                     <div class="col-lg-8 ps-lg-5" style="margin-top: 8%;">
@@ -271,8 +269,18 @@
                         <img src="{{ asset('images/aset5hukum.png') }}" alt="Contoh aturan" class="card-icon">
                         <h3 class="card-title-hukum">Contoh aturan di sekolah</h3>
                         <ul class="checklist-hukum">
-                            <li><i class="bi bi-check-circle-fill"></i> Buang sampah pada tempatnya.</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Tidak merusak tanaman</li>
+                            <li>
+                                <svg class="check-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                <span>Buang sampah pada tempatnya.</span>
+                            </li>
+                            <li>
+                                <svg class="check-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                <span>Tidak merusak tanaman</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
