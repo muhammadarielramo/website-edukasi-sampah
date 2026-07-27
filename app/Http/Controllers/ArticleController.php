@@ -9,9 +9,36 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::latest()->paginate(10);
+        $query = Article::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('content', 'like', "%{$search}%");
+            });
+        }
+
+        switch ($request->get('sort')) {
+            case 'oldest':
+                $query->oldest();
+                break;
+            case 'title_asc':
+                $query->orderBy('title', 'asc');
+                break;
+            case 'title_desc':
+                $query->orderBy('title', 'desc');
+                break;
+            case 'latest':
+            default:
+                $query->latest();
+                break;
+        }
+
+        $articles = $query->paginate(10)->withQueryString();
+
         return view('articles.index', compact('articles'));
     }
 

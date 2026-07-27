@@ -8,9 +8,33 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $videos = Video::latest()->get();
+        $query = Video::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where('title', 'like', "%{$search}%");
+        }
+
+        switch ($request->get('sort')) {
+            case 'oldest':
+                $query->oldest();
+                break;
+            case 'title_asc':
+                $query->orderBy('title', 'asc');
+                break;
+            case 'title_desc':
+                $query->orderBy('title', 'desc');
+                break;
+            case 'latest':
+            default:
+                $query->latest();
+                break;
+        }
+
+        $videos = $query->paginate(10)->withQueryString();
+
         return view('videos.index', compact('videos'));
     }
 

@@ -70,5 +70,35 @@
                 </main>
             </div>
         </div>
+
+        <!-- SweetAlert2 Pop-up Confirmation -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            function confirmDelete(event, itemName) {
+                event.preventDefault();
+                const form = event.target.closest('form');
+                Swal.fire({
+                    title: 'Hapus ' + itemName + '?',
+                    text: 'Data ' + itemName.toLowerCase() + ' yang sudah dihapus tidak dapat dikembalikan!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#dc2626',
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: 'Ya, Hapus!',
+                    cancelButtonText: 'Batal',
+                    reverseButtons: true,
+                    customClass: {
+                        popup: 'rounded-2xl shadow-2xl border border-gray-100 p-6',
+                        confirmButton: 'px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-sm transition focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2',
+                        cancelButton: 'px-5 py-2.5 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded-xl text-sm transition mr-3 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2'
+                    },
+                    buttonsStyling: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
