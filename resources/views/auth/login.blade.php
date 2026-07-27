@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Login Admin - SDN Kondangjaya II</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logosdnkondangjaya2.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -39,14 +40,14 @@
                 <!-- Username -->
                 <div class="mb-5">
                     <label for="username" class="block font-bold text-gray-900 text-[16px] mb-2">{{ __('Username') }}</label>
-                    <input id="username" class="block w-full border-gray-400 focus:border-[#366835] focus:ring focus:ring-[#366835] focus:ring-opacity-50 rounded-xl shadow-sm px-4 py-2 bg-white text-gray-700" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" placeholder="Admin" />
+                    <input id="username" class="block w-full border-gray-400 focus:border-[#366835] focus:ring focus:ring-[#366835] focus:ring-opacity-50 rounded-xl shadow-sm px-4 py-2 bg-white text-gray-700" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
                     <x-input-error :messages="$errors->get('username')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div class="mb-4">
                     <label for="password" class="block font-bold text-gray-900 text-[16px] mb-2">{{ __('Password') }}</label>
-                    <input id="password" class="block w-full border-gray-400 focus:border-[#366835] focus:ring focus:ring-[#366835] focus:ring-opacity-50 rounded-xl shadow-sm px-4 py-2 bg-white text-gray-700" type="password" name="password" required autocomplete="current-password" placeholder="Admin123" />
+                    <input id="password" class="block w-full border-gray-400 focus:border-[#366835] focus:ring focus:ring-[#366835] focus:ring-opacity-50 rounded-xl shadow-sm px-4 py-2 bg-white text-gray-700" type="password" name="password" required autocomplete="current-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
