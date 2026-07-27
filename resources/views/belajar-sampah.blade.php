@@ -356,7 +356,10 @@
             <!-- Video Content -->
             <div class="col-lg-6">
                 <div class="video-wrapper">
-                    <iframe width="100%" height="350" src="https://app.heygen.com/embeds/f0b8cddeca564b9bac8c3b41281d145e" title="Check out a new AI Video I just made!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; microphone; camera" allowfullscreen id="video-materi"></iframe>
+                    <video controls class="w-100" style="height: 350px; object-fit: cover; border-radius: 12px;" id="video-materi">
+                        <source src="{{ asset('images/videoedukasi1.mp4') }}" type="video/mp4">
+                        Browser Anda tidak mendukung pemutar video ini.
+                    </video>
                 </div>
             </div>
         </div>
