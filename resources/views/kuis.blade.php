@@ -790,6 +790,7 @@
     }
 
     function loadQuestion() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         isChecked = false;
         selectedOptionIndex = null;
         setScreenFlash(null);
@@ -1001,6 +1002,7 @@
     }
 
     function showResults() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         quizScreen.style.display = 'none';
         resultScreen.style.display = 'block';
         
